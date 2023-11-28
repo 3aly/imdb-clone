@@ -3,7 +3,7 @@ import { querySearchMovies } from "../../services";
 
 export const useSearchMovies = (moviename: string, rest: any) => {
   const query = useInfiniteQuery({
-    queryKey: ["querySearchMovies"],
+    queryKey: ["querySearchMovies", moviename],
     queryFn: ({ pageParam = 1 }) =>
       querySearchMovies({ page: pageParam, movie: moviename }),
     enabled: true,
