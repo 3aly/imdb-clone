@@ -17,7 +17,7 @@ export const SearchBar = ({ title, setSearchTerm }: SearchBarProps) => {
         label={title}
         id="fullWidth"
         color="primary"
-        style={{ width: "60%" }}
+        style={{ width: "40%", marginTop: 2, height: "" }}
         sx={{
           input: { color: "white" },
           borderWidth: 2,
@@ -28,6 +28,11 @@ export const SearchBar = ({ title, setSearchTerm }: SearchBarProps) => {
         }}
         InputLabelProps={{
           style: {
+            fontFamily: "DM Sans",
+            fontSize: 16,
+            fontStyle: "normal",
+            fontWeight: 400,
+            // lineHeight: 24,
             // borderColor: "white",
             color: "white",
           },

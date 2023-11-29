@@ -30,7 +30,6 @@
   /* min-height: 40vh; Adjust the height based on your design preferences */
   object-fit: scale-down;
   object-position: center;
-  z-index: -1; /* Place the cover photo behind other elements */
 }
 .search-bar {
   border-radius: 6px;
