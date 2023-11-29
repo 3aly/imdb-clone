@@ -16,10 +16,26 @@ export const SearchBar = ({ title, setSearchTerm }: SearchBarProps) => {
         fullWidth
         label={title}
         id="fullWidth"
+        color="primary"
+        style={{ width: "60%" }}
+        sx={{
+          input: { color: "white" },
+          borderWidth: 2,
+          borderRadius: 3,
+          borderStyle: "solid",
+
+          borderColor: "primary.main",
+        }}
+        InputLabelProps={{
+          style: {
+            // borderColor: "white",
+            color: "white",
+          },
+        }}
         InputProps={{
           endAdornment: (
             <InputAdornment position="start">
-              <SearchOutlinedIcon />
+              <SearchOutlinedIcon color={"primary"} />
             </InputAdornment>
           ),
         }}

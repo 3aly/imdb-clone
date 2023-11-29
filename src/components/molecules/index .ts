@@ -1,1 +1,2 @@
-export { SearchBar } from "./SearchBar/SearchBar";
+export { SearchBar } from "./SearchBar/searchbar";
+export { MoviePoster } from "./MoviePoster/MoviePoster";
