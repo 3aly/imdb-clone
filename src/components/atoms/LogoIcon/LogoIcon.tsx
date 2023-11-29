@@ -1,8 +1,19 @@
-import { SvgIcon } from "@mui/material";
+import { Box, SvgIcon } from "@mui/material";
 import React from "react";
+import { IMAGES } from "../../../assets";
 
-const LogoIcon = () => {
-  return <></>;
+export const LogoIcon = () => {
+  return (
+    <SvgIcon
+      sx={{
+        display: "flex",
+        backgroundColor: "blue",
+        padding: 3,
+        justifyContent: "center",
+      }}
+    >
+      {/* Embed the PNG image using the <image> element */}
+      {/* <image href={IMAGES.logo} width="24" height="24" /> */}
+    </SvgIcon>
+  );
 };
-
-export default LogoIcon;
