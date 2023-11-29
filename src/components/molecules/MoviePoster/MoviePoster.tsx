@@ -21,15 +21,19 @@ export const MoviePoster = ({
   return (
     <Card
       sx={{
+        flexGrow: 1,
+        // display: "flex",
+        // alignItems: "center",
+        // justifyContent: "center",
         maxWidth: 300,
+        width: 250,
       }}
     >
       <CardMedia
-        sx={{ height: 300 }}
+        sx={{ height: 370 }}
         image={`https://image.tmdb.org/t/p/w500${posterUrl}`}
         title={title}
       />
-
       <CardContent>
         {
           <Typography variant="h7" component="div">

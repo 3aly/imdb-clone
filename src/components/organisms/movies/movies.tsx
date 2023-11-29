@@ -13,16 +13,17 @@ export default function Movies({ MoviesData }: MoviesProps) {
   return (
     <Grid
       container
-      spacing={{ xs: 2, md: 3 }}
+      // display={"flex"}
+      spacing={{ xs: 2, md: 3, lg: 4 }}
       sx={{ backgroundColor: "red" }}
       // direction="row"
       // justifyContent="flex-start"
       // alignItems="center"
     >
-      <Typography>Feature Section</Typography>
       {MoviesData.map(({ results: page }, index) => {
         return page.map(
           (movie: {
+            id: number;
             original_title: string;
             poster_path: string;
             vote_average: number;
@@ -30,7 +31,19 @@ export default function Movies({ MoviesData }: MoviesProps) {
             release_date: string;
           }) => {
             return (
-              <Grid item key={index} xs={12} sm={6} md={3}>
+              <Grid
+                // mx={"auto"}
+                item
+                key={movie.id}
+                xs={12}
+                sm={6}
+                md={3}
+                lg={3}
+                sx={{ backgroundColor: "blue" }}
+                alignItems={"center"}
+                justifyContent={"center"}
+                display={"flex"}
+              >
                 <MoviePoster
                   title={movie.original_title}
                   posterUrl={movie.poster_path}
