@@ -9,6 +9,8 @@ export const useFetchAllMovies = (rest: any) => {
       // const nextPage = lastPage.length > 0 ? allPages.length + 1 : null;
       return allPages.length + 1;
     },
+    refetchOnWindowFocus: false,
+
     ...rest,
   });
 
