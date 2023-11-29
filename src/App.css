@@ -1,15 +1,40 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  /* max-width: 1280px; */
+  /* margin: 0 auto; */
+  /* padding: 2rem; */
+  /* text-align: center; */
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.cover-photo {
+  /* width: 100%; */
+  /* max-width: ; */
+  /* height: 600px; */
+  /* Adjust the height based on your design preferences */
+  object-fit: cover;
+
+  /* z-index: -1; */
+  /* Place the cover photo behind other elements */
+}
+.container {
+  width: 100%;
+  background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0.5) 100%
+    ),
+    url("https://s3-alpha-sig.figma.com/img/154e/382f/b7e8be84d7248b8b9812172cad1cd0c9?Expires=1702252800&Signature=ZhAr1Ao2t7rkA11kvHhmN34mIAeOUuKheNynTEm4pUukzpUMBXw~5Jm~et0M4K282Ei56AMKyJytZNBBCvQITdqYDx99yCO2s9~S6U3RLgsTrJnIGefgWDuWkK871Bn2OMfeHs1pEZkdSe0fHWq-ECy~YzRYE-2fRa7ywWWYnPE4L2iayGcu0xotsS2fNwY13vzhTHHtMH33OvHcXtvOnbaT3WM6Hi8LzNGZTRSLs0nbsTFVQ~Ki57QjJr2sd~9bTFp1UllQhnnJ0O-O24TanXQzsu9yjGWk~CGA1vphwtbn0Yu~eJyPcyFypPkHZ5y6DZvruPFY-9xOtk~iNyq4Gw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4")
+      lightgray 50% / cover no-repeat;
+
+  /* max-width: ; */
+  height: 70vh;
+  /* min-height: 40vh; Adjust the height based on your design preferences */
+  object-fit: scale-down;
+  object-position: center;
+  z-index: -1; /* Place the cover photo behind other elements */
+}
+.search-bar {
+  border-radius: 6px;
+  border: 2px solid var(--gray-300, #d1d5db);
 }
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
