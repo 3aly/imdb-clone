@@ -52,7 +52,7 @@ function App() {
   return (
     <Box display={"flex"} flexDirection={"column"}>
       <NavBar setSearchTerm={setSearchTerm} />
-      {/* <SectionTitle title={"Feture Section"} /> */}
+      <SectionTitle title={"Feture Section"} />
       <Movies {...{ MoviesData }} />
       <Footer />
     </Box>
