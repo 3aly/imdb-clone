@@ -12,8 +12,12 @@ export const theme = createTheme({
       fontSize: 16,
       fontWeight: 400,
     },
+    h3: {
+      fontSize: 16,
+      fontWeight: 700,
+    },
     h4: {
-      fontSize: 36,
+      fontSize: 38,
       fontWeight: 700,
     },
     subtitle1: { fontSize: 12, fontStyle: "normal", fontWeight: 700 },
@@ -31,12 +35,12 @@ export const theme = createTheme({
       text: "#6B7280",
       logo: "#BE123C",
     },
-    // secondary: {
-    //   main: "#000",
-    //   light: "#111827",
-    //   logo: "#BE123C",
-    //   text: "#6B7280",
-    // },
+    secondary: {
+      main: "#111827",
+      // light: "#111827",
+      // logo: "#BE123C",
+      // text: "#6B7280",
+    },
   },
 });
 
