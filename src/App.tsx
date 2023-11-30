@@ -1,17 +1,22 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import "./App.css";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { useFetchAllMovies } from "./hooks";
-import { useInView } from "react-intersection-observer";
-import { SearchBar, SectionTitle } from "./components/molecules/index ";
-import { useSearchMovies } from "./hooks/useSearchMovies/useSearchMovies";
+import { useFetchAllMovies, useSearchMovies } from "./hooks";
+import { SectionTitle } from "./components/molecules/index ";
 import { Footer, Movies, NavBar } from "./components/organisms/index ";
-import { Box, Stack, ThemeProvider } from "@mui/material";
+import {
+  Box,
+  CircularProgress,
+  IconButton,
+  ThemeProvider,
+} from "@mui/material";
 import { theme } from "./constants";
-
+import { MoviesDataType } from "./types";
+import { useStyles } from "./App.styles";
+import { ScrollToTopButton } from "./components/atoms/index ";
 function App() {
-  const [MoviesData, setMoviesData] = useState<Array<Array<any>>>([]);
+  const [MoviesData, setMoviesData] = useState<Array<MoviesDataType>>([]);
   const [searchTerm, setSearchTerm] = useState<string>("");
 
   const { hasNextPage, isFetchingNextPage, fetchNextPage } = useFetchAllMovies({
@@ -20,9 +25,10 @@ function App() {
     },
     enabled: searchTerm?.length > 0 ? false : true,
   });
+
   const {
     hasNextPage: searchHasNextPage,
-    isFetchingNextPage: searchisFetchingNextPage,
+    isFetchingNextPage: isFetchingNextSearchPage,
     fetchNextPage: fetchSearchNextPage,
   } = useSearchMovies(searchTerm, {
     onSuccess: (data: { pages: [] }) => {
@@ -30,31 +36,40 @@ function App() {
     },
     enabled: searchTerm?.length > 0 ? true : false,
   });
-  const handleLoadMore = (event) => {
-    event.preventDefault(); // Prevent the default form submission behavior or link click
 
-    fetchNextPage();
-  };
+  const { classes } = useStyles();
+  // const handleScroll = () => {
+  //   const scrollTop = window.scrollY;
+  //   const clientHeight = window.outerHeight;
+  //   const documentHeight = document.body.scrollHeight;
 
-  // const { ref, inView } = useInView({
-  //   threshold: 0,
-  // });
-  // useEffect(() => {
-  //   if (inView) {
-  //     if (searchTerm.length > 0 && fetchSearchNextPage) {
+  //   if (scrollTop + clientHeight >= documentHeight - 1) {
+  //     console.log("first scroll", searchTerm.length);
+  //     if (searchTerm.length > 0) {
   //       fetchSearchNextPage();
-  //     } else if (hasNextPage) {
+  //     } else {
   //       fetchNextPage();
   //     }
   //   }
-  // }, [hasNextPage, inView, searchHasNextPage]);
+  // };
+
+  // window.addEventListener("scroll", handleScroll);
 
   return (
-    <Box display={"flex"} flexDirection={"column"}>
+    <Box sx={{ display: "flex", flexDirection: "column" }}>
       <NavBar setSearchTerm={setSearchTerm} />
-      <SectionTitle title={"Feture Section"} />
-      <Movies {...{ MoviesData }} />
-      <Footer />
+      <Box className={classes.container}>
+        <SectionTitle title={"Featured Movie"} />
+        <Movies {...{ MoviesData }} />
+        {(isFetchingNextPage || isFetchingNextSearchPage || true) && (
+          <IconButton className={`${classes.loader} ${classes.loading}`}>
+            <CircularProgress />
+          </IconButton>
+        )}
+        <Footer />
+
+        <ScrollToTopButton />
+      </Box>
     </Box>
   );
 }
