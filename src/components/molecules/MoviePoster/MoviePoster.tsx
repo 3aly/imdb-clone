@@ -1,5 +1,3 @@
-import React from "react";
-
 import {
   Box,
   Card,
@@ -10,14 +8,7 @@ import {
 } from "@mui/material";
 import { ImdbRating, RottenRating } from "../../atoms/index ";
 import { useStyles } from "./MoviePoster.styles";
-
-type MoviesProps = {
-  title?: string;
-  posterUrl?: string;
-  rating?: number;
-  lang?: string;
-  date?: string;
-};
+import { MoviePosterProps } from "../../../types";
 
 export const MoviePoster = ({
   title,
@@ -25,34 +16,22 @@ export const MoviePoster = ({
   rating = 0,
   lang,
   date,
-}: MoviesProps) => {
+}: MoviePosterProps) => {
   const { classes } = useStyles();
 
   return (
     <Card className={classes.CardContainer}>
       <CardMedia
-        sx={{ height: 370 }}
+        className={classes.mediaContainer}
         image={`https://image.tmdb.org/t/p/w500${posterUrl}`}
         title={title}
       />
-      <CardContent
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          padding: 0,
-          marginTop: 1,
-        }}
-      >
-        {
-          <Typography
-            variant="subtitle1"
-            component="div"
-            color={"primary.light"}
-          >
-            {lang?.toUpperCase()}, {date?.substring(0, 4)}
-          </Typography>
-        }
-        <Typography variant="h6" component="div">
+      <CardContent className={classes.cardContentContainer}>
+        <Typography variant="subtitle1" component="div" color={"primary.light"}>
+          {lang?.toUpperCase()}, {date?.substring(0, 4)}
+        </Typography>
+
+        <Typography variant="h6" component="div" className={classes.movieTitle}>
           {title}
         </Typography>
         <Stack direction={"row"} sx={{ justifyContent: "space-between" }}>

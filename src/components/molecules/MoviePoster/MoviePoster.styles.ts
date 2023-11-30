@@ -1,31 +1,29 @@
 import { makeStyles } from "tss-react/mui";
 
-export const useStyles = makeStyles()((theme) => {
+export const useStyles = makeStyles()(() => {
   return {
     CardContainer: {
-      flexGrow: 1,
-      borderWidth: 1,
+      height: "auto",
+      justifyContent: "center",
+      boxShadow: "none",
       borderRadius: 0,
-      // display: "flex",
-      // alignItems: "center",
-      // justifyContent: "center",
-      maxWidth: 300,
-      width: 250,
+      maxWidth: "90%",
     },
-    ToolbarContainer: {
-      justifyContent: "space-between",
+    cardContentContainer: {
+      display: "flex",
+      flexDirection: "column",
+      padding: 0,
+      marginTop: "3%",
     },
-    LogoIconContainer: {
-      marginLeft: 70,
-      marginRight: 30,
-
-      backgroundColor: theme.palette.primary.logo,
+    movieTitle: {
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+      display: "-webkit-box",
+      "-webkit-line-clamp": 2, // Limit to 2 lines
+      "-webkit-box-orient": "vertical",
     },
-    MenuIconContainer: {
-      marginRight: 70,
-      marginLeft: 30,
-
-      backgroundColor: theme.palette.primary.logo,
+    mediaContainer: {
+      height: "50vh",
     },
   };
 });
