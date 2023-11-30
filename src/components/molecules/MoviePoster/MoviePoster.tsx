@@ -2,6 +2,7 @@ import React from "react";
 
 import { Card, CardContent, CardMedia, Stack, Typography } from "@mui/material";
 import { ImdbRating, RottenRating } from "../../atoms/index ";
+import { useStyles } from "./MoviePoster.styles";
 
 type MoviesProps = {
   title?: string;
@@ -18,25 +19,29 @@ export const MoviePoster = ({
   lang,
   date,
 }: MoviesProps) => {
+  const { classes } = useStyles();
+
   return (
-    <Card
-      sx={{
-        flexGrow: 1,
-        // display: "flex",
-        // alignItems: "center",
-        // justifyContent: "center",
-        maxWidth: 300,
-        width: 250,
-      }}
-    >
+    <Card className={classes.CardContainer}>
       <CardMedia
         sx={{ height: 370 }}
         image={`https://image.tmdb.org/t/p/w500${posterUrl}`}
         title={title}
       />
-      <CardContent>
+      <CardContent
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          padding: 0,
+          marginTop: 1,
+        }}
+      >
         {
-          <Typography variant="h7" component="div">
+          <Typography
+            variant="subtitle1"
+            component="div"
+            color={"primary.light"}
+          >
             {lang?.toUpperCase()}, {date?.substring(0, 4)}
           </Typography>
         }
