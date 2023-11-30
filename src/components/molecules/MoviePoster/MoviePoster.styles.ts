@@ -7,7 +7,6 @@ export const useStyles = makeStyles()(() => {
       justifyContent: "center",
       boxShadow: "none",
       borderRadius: 0,
-      maxWidth: "90%",
     },
     cardContentContainer: {
       display: "flex",

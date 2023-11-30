@@ -1,70 +1,71 @@
-import React from "react";
+import { IconButton, Box, Link, Typography } from "@mui/material";
+import { GitHub, Instagram, LinkedIn, YouTube } from "@mui/icons-material";
+import { useStyles } from "./Footer.styles";
+import { handleLinkClick } from "../../../utils/Utils";
 
-import styles from "./searchbar.css";
-import {
-  BottomNavigation,
-  BottomNavigationAction,
-  Link,
-  Stack,
-  Typography,
-} from "@mui/material";
-import { GitHub, LinkedIn, Twitter, YouTube } from "@mui/icons-material";
+export default function Footer() {
+  const { classes } = useStyles();
 
-export interface FooterProps {
-  prop?: string;
-}
-
-export default function Footer({ prop = "default value" }: FooterProps) {
-  const handleLinkClick = (url: string) => {
-    // Open the link in a new tab/window
-    window.open(url, "_blank");
-  };
   return (
-    <footer>
-      {/* <Stack
-        alignContent={"center"}
-        justifyContent={"center"}
-        alignItems={"center"}
-        // px={4}
-        sx={{ backgroundColor: "red" }}
-      > */}
-      <BottomNavigation showLabels>
-        <BottomNavigationAction
-          icon={<GitHub />}
+    <Box className={classes.container} sx={{}}>
+      <Box className={classes.iconsContainer}>
+        <IconButton
+          color="secondary"
           onClick={() => handleLinkClick("https://github.com/3aly")}
-        />
-        <BottomNavigationAction
-          icon={<LinkedIn />}
-          onClick={() => handleLinkClick("https://linkedin.com")}
-        />
-        <BottomNavigationAction
-          icon={<YouTube />}
-          onClick={() => handleLinkClick("https://YouTube.com/")}
-        />
-      </BottomNavigation>
+        >
+          <GitHub />
+        </IconButton>
 
-      <Stack
-        flexDirection={"row"}
-        justifyContent={"space-evenly"}
-        m={"3%"}
-        mx={"30%"}
-      >
+        <IconButton
+          color="secondary"
+          onClick={() =>
+            handleLinkClick("https://linkedin.com/in/ali-hefny-b8087723a")
+          }
+        >
+          <LinkedIn />
+        </IconButton>
+        <IconButton
+          color="secondary"
+          onClick={() =>
+            handleLinkClick("https://www.instagram.com/3aly_7efny/")
+          }
+        >
+          <Instagram />
+        </IconButton>
+        <IconButton
+          color="secondary"
+          onClick={() =>
+            handleLinkClick(
+              "https://www.youtube.com/channel/UCriuGOGkWvjSNUVKFuF0tKA"
+            )
+          }
+        >
+          <YouTube />
+        </IconButton>
+      </Box>
+      <Box className={classes.linksContainer}>
         <Link href="#" color="secondary.light" underline="none">
-          <Typography variant="caption">Conditions of Use</Typography>
+          <Typography variant="h3" color={"primary.grey"}>
+            Conditions of Use
+          </Typography>
         </Link>
         <Link href="#" color="secondary.light" underline="none">
-          <Typography variant="caption">Privacy & Policy</Typography>
+          <Typography variant="h3" color={"primary.grey"}>
+            Privacy & Policy
+          </Typography>
         </Link>
         <Link href="#" color="secondary.light" underline="none">
-          <Typography variant="caption">Press Room</Typography>
+          <Typography variant="h3" color={"primary.grey"}>
+            Press Room
+          </Typography>
         </Link>
-      </Stack>
-      <BottomNavigation showLabels>
-        <Typography variant="caption" align="center" color={"primary.text"}>
+      </Box>
+
+      <Box>
+        <Typography variant="h3" align="center" color={"primary.text"}>
           © 2023 MovieBox by Ali Hefny
         </Typography>
-      </BottomNavigation>
-      {/* </Stack> */}
-    </footer>
+      </Box>
+    </Box>
   );
 }
