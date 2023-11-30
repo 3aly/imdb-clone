@@ -1,6 +1,13 @@
 import React from "react";
 
-import { Card, CardContent, CardMedia, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Card,
+  CardContent,
+  CardMedia,
+  Stack,
+  Typography,
+} from "@mui/material";
 import { ImdbRating, RottenRating } from "../../atoms/index ";
 import { useStyles } from "./MoviePoster.styles";
 
@@ -52,6 +59,15 @@ export const MoviePoster = ({
           <ImdbRating rating={rating} />
           <RottenRating rating={rating} />
         </Stack>
+        <Box>
+          <Typography
+            variant="subtitle1"
+            component="div"
+            color={"primary.light"}
+          >
+            Animation, Action, Adventure
+          </Typography>
+        </Box>
       </CardContent>
     </Card>
   );
