@@ -11,3 +11,7 @@ export type MoviesProps = {
   prop?: string;
   MoviesData: Array<MoviesDataType>;
 };
+
+export type SectionTitleProps = {
+  title: string;
+};
