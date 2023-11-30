@@ -5,10 +5,13 @@ export const useStyles = makeStyles()(() => {
     logoContainer: {
       display: "flex",
       flexDirection: "row",
-      width: "22%",
+      width: "7vh",
       alignItems: "center",
       alignContent: "center",
       justifyContent: "space-between",
+    },
+    text: {
+      marginLeft: "11%",
     },
   };
 });

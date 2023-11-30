@@ -5,9 +5,11 @@ export const useStyles = makeStyles()(() => {
     logoContainer: {
       display: "flex",
       flexDirection: "row",
-      width: "30%",
       alignItems: "center",
       justifyContent: "space-between",
+    },
+    logo: {
+      marginRight: "11%",
     },
   };
 });

@@ -11,7 +11,7 @@ export const ImdbRating = ({ rating }: ImdbRatingProps) => {
 
   return (
     <Box className={classes.logoContainer}>
-      <SvgIcon fontSize={"large"}>
+      <SvgIcon fontSize={"large"} className={classes.logo}>
         <image href={IMAGES.imdb} width="24" height="24" />
       </SvgIcon>
 
