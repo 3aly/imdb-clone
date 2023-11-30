@@ -5,18 +5,13 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { useFetchAllMovies, useSearchMovies } from "./hooks";
 import { SectionTitle } from "./components/molecules/index ";
 import { Footer, Movies, NavBar } from "./components/organisms/index ";
-import {
-  Box,
-  CircularProgress,
-  IconButton,
-  ThemeProvider,
-} from "@mui/material";
+import { Box, ThemeProvider } from "@mui/material";
 import { theme } from "./constants";
 import { MoviesDataType } from "./types";
 import { useStyles } from "./App.styles";
-import { ScrollToTopButton } from "./components/atoms/index ";
+import { Loader, ScrollToTopButton } from "./components/atoms/index ";
 function App() {
-  const [MoviesData, setMoviesData] = useState<Array<MoviesDataType>>([]);
+  const [moviesData, setMoviesData] = useState<Array<MoviesDataType>>([]);
   const [searchTerm, setSearchTerm] = useState<string>("");
 
   const { hasNextPage, isFetchingNextPage, fetchNextPage } = useFetchAllMovies({
@@ -38,34 +33,40 @@ function App() {
   });
 
   const { classes } = useStyles();
-  // const handleScroll = () => {
-  //   const scrollTop = window.scrollY;
-  //   const clientHeight = window.outerHeight;
-  //   const documentHeight = document.body.scrollHeight;
+  const handleScroll = () => {
+    const scrollTop = window.scrollY;
+    const clientHeight = window.outerHeight;
+    const documentHeight = document.body.scrollHeight;
 
-  //   if (scrollTop + clientHeight >= documentHeight - 1) {
-  //     console.log("first scroll", searchTerm.length);
-  //     if (searchTerm.length > 0) {
-  //       fetchSearchNextPage();
-  //     } else {
-  //       fetchNextPage();
-  //     }
-  //   }
-  // };
+    if (
+      scrollTop + clientHeight >= documentHeight - 1 &&
+      (hasNextPage || searchHasNextPage)
+    ) {
+      if (searchTerm.length > 0) {
+        fetchSearchNextPage();
+      } else {
+        fetchNextPage();
+      }
+    }
+  };
 
-  // window.addEventListener("scroll", handleScroll);
+  window.addEventListener("scroll", handleScroll);
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column" }}>
       <NavBar setSearchTerm={setSearchTerm} />
       <Box className={classes.container}>
-        <SectionTitle title={"Featured Movie"} />
-        <Movies {...{ MoviesData }} />
-        {(isFetchingNextPage || isFetchingNextSearchPage || true) && (
-          <IconButton className={`${classes.loader} ${classes.loading}`}>
-            <CircularProgress />
-          </IconButton>
-        )}
+        <SectionTitle
+          title={
+            searchTerm && !(isFetchingNextPage || isFetchingNextSearchPage)
+              ? "Search Results..."
+              : "Featured Movie"
+          }
+        />
+        <Movies {...{ moviesData }} />
+        <Loader
+          isLoading={isFetchingNextPage || isFetchingNextSearchPage || true}
+        />
         <Footer />
 
         <ScrollToTopButton />

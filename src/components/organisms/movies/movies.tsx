@@ -1,12 +1,11 @@
 import { Grid } from "@mui/material";
 import { MoviePoster } from "../../molecules/index ";
 import { MovieType, MoviesProps } from "../../../types";
-import { ScrollToTopButton } from "../../atoms/index ";
 
-export default function Movies({ MoviesData }: MoviesProps) {
+export default function Movies({ moviesData }: MoviesProps) {
   return (
     <Grid container rowGap={4} columnSpacing={15}>
-      {MoviesData.map(({ results: page }) => {
+      {moviesData.map(({ results: page }) => {
         return page.map((movie: MovieType) => {
           return (
             <Grid item key={movie.id} xs={12} sm={6} md={4} lg={3}>

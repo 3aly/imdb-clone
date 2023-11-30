@@ -10,7 +10,7 @@ export type MoviePosterProps = {
 };
 export type MoviesProps = {
   prop?: string;
-  MoviesData: Array<MoviesDataType>;
+  moviesData: Array<MoviesDataType>;
 };
 
 export type SectionTitleProps = {
