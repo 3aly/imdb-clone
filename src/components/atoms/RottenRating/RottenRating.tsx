@@ -12,11 +12,12 @@ export const RottenRating = ({ rating = 0 }: RottenRatingProps) => {
 
   return (
     <Box className={classes.logoContainer}>
-      <SvgIcon>
+      <SvgIcon fontSize="inherit">
         <image href={IMAGES.rotten} width="24" height="24" />
       </SvgIcon>
-      <Typography variant="subtitle1" color="grey">
-        {(rating * 10).toFixed(1)}%
+
+      <Typography variant="subtitle1" color="primary.grey">
+        {((rating - 2) * 10).toFixed(1)}%
       </Typography>
     </Box>
   );

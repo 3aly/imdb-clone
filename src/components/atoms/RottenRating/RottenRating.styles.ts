@@ -5,8 +5,9 @@ export const useStyles = makeStyles()(() => {
     logoContainer: {
       display: "flex",
       flexDirection: "row",
-      width: 65,
+      width: "22%",
       alignItems: "center",
+      alignContent: "center",
       justifyContent: "space-between",
     },
   };
