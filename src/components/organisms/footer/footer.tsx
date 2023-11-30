@@ -1,13 +1,13 @@
 import { IconButton, Box, Link, Typography } from "@mui/material";
 import { GitHub, Instagram, LinkedIn, YouTube } from "@mui/icons-material";
 import { useStyles } from "./Footer.styles";
-import { handleLinkClick } from "../../../utils/Utils";
+import { handleLinkClick } from "../../../utils/utils";
 
 export default function Footer() {
   const { classes } = useStyles();
 
   return (
-    <Box className={classes.container} sx={{}}>
+    <Box className={classes.container}>
       <Box className={classes.iconsContainer}>
         <IconButton
           color="secondary"

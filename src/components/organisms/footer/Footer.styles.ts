@@ -9,14 +9,14 @@ export const useStyles = makeStyles()(() => {
       alignItems: "center",
       height: "15vh",
 
-      marginY: "3%",
+      margin: "5vh 0vh",
       justifyContent: "space-between",
       alignContent: "space-between",
     },
     iconsContainer: {
       display: "flex",
       flexDirection: "row",
-      width: "90%",
+      width: "50%",
       justifyContent: "space-between",
       alignItems: "space-between",
     },
@@ -26,9 +26,6 @@ export const useStyles = makeStyles()(() => {
       width: "100%",
       justifyContent: "space-between",
       alignItems: "space-between",
-    },
-    mediaContainer: {
-      height: "50vh",
     },
   };
 });
