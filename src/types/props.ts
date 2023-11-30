@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from "react";
 import { MoviesDataType } from ".";
 
 export type MoviePosterProps = {
@@ -14,4 +15,15 @@ export type MoviesProps = {
 
 export type SectionTitleProps = {
   title: string;
+};
+export type ImdbRatingProps = {
+  rating: number;
+};
+
+export type SearchBarProps = {
+  title?: string;
+  setSearchTerm: Dispatch<SetStateAction<string>>;
+};
+export type NavBarProps = {
+  setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
 };

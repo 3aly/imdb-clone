@@ -1,12 +1,8 @@
-// import styles from "./searchbar.css";
 import { TextField, InputAdornment, Box } from "@mui/material";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import { useStyles } from "./Searchbar.styles";
-import { Dispatch, SetStateAction } from "react";
-type SearchBarProps = {
-  title?: string;
-  setSearchTerm: Dispatch<SetStateAction<string>>;
-};
+import { quickStyles } from "../../../constants";
+import { SearchBarProps } from "../../../types";
 
 export const SearchBar = ({ title, setSearchTerm }: SearchBarProps) => {
   const { classes } = useStyles();
@@ -25,7 +21,7 @@ export const SearchBar = ({ title, setSearchTerm }: SearchBarProps) => {
         InputProps={{
           endAdornment: (
             <InputAdornment position="start">
-              <Box sx={{ display: { xs: "none", md: "flex" } }}>
+              <Box sx={quickStyles.hiddenSmall}>
                 <SearchOutlinedIcon color={"primary"} fontSize="large" />
               </Box>
             </InputAdornment>

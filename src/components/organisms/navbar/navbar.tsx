@@ -13,10 +13,9 @@ import { Stack } from "@mui/material";
 import { useStyles } from "./Navbar.styles";
 import DragHandleRoundedIcon from "@mui/icons-material/DragHandleRounded";
 import { quickStyles } from "../../../constants";
-type props = {
-  setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
-};
-export default function NavBar({ setSearchTerm }: props) {
+import { NavBarProps } from "../../../types";
+
+export default function NavBar({ setSearchTerm }: NavBarProps) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
     React.useState<null | HTMLElement>(null);

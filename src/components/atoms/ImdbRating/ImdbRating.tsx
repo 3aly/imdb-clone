@@ -2,10 +2,8 @@ import { Box, SvgIcon, Typography } from "@mui/material";
 
 import { IMAGES } from "../../../assets";
 import { useStyles } from "./ImdbRating.styles";
+import { ImdbRatingProps } from "../../../types";
 
-type ImdbRatingProps = {
-  rating: number;
-};
 export const ImdbRating = ({ rating }: ImdbRatingProps) => {
   const { classes } = useStyles();
 

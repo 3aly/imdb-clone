@@ -1,11 +1,9 @@
 import { Grid } from "@mui/material";
 import { MoviePoster } from "../../molecules/index ";
 import { MovieType, MoviesProps } from "../../../types";
-import { useStyles } from "./Movies.styles";
+import { ScrollToTopButton } from "../../atoms/index ";
 
 export default function Movies({ MoviesData }: MoviesProps) {
-  const { classes } = useStyles();
-
   return (
     <Grid container rowGap={4} columnSpacing={15}>
       {MoviesData.map(({ results: page }) => {
