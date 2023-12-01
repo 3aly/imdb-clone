@@ -1,31 +1,40 @@
 import { makeStyles } from "tss-react/mui";
 
-export const useStyles = makeStyles()(() => {
+export const useStyles = makeStyles()((theme) => {
   return {
     container: {
       display: "flex",
       flexDirection: "column",
-      width: "50vh",
+      backgroundColor: "red",
       alignItems: "center",
-      height: "15vh",
+      height: theme.spacing(20),
 
-      margin: "5vh 0vh",
+      marginLeft: theme.spacing(5),
+      marginRight: theme.spacing(5),
+      marginTop: theme.spacing(3),
+      marginBottom: theme.spacing(1),
       justifyContent: "space-between",
       alignContent: "space-between",
     },
     iconsContainer: {
       display: "flex",
       flexDirection: "row",
-      width: "50%",
+      width: theme.spacing(30),
       justifyContent: "space-between",
       alignItems: "space-between",
+      "@media (max-width: 900px)": {
+        width: theme.spacing(40),
+      },
     },
     linksContainer: {
       display: "flex",
       flexDirection: "row",
-      width: "100%",
+      width: theme.spacing(55),
       justifyContent: "space-between",
       alignItems: "space-between",
+      "@media (max-width: 900px)": {
+        width: theme.spacing(50),
+      },
     },
   };
 });
