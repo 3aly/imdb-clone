@@ -11,11 +11,24 @@ export const useStyles = makeStyles()((theme) => {
       backgroundColor: theme.palette.primary.logo,
     },
     toolbarContainer: {
-      margin: "0.5% 5%",
+      marginLeft: theme.spacing(10),
+      marginRight: theme.spacing(10),
+      marginTop: theme.spacing(1),
+      marginBottom: theme.spacing(1),
+
       justifyContent: "space-between",
+      "@media (max-width: 900px)": {
+        marginLeft: theme.spacing(2),
+        marginRight: theme.spacing(2),
+        marginTop: theme.spacing(0),
+        marginBottom: theme.spacing(0),
+      },
     },
     logoIconContainer: {
-      marginRight: "3vh",
+      marginRight: theme.spacing(4),
+      "@media (max-width: 900px)": {
+        marginRight: theme.spacing(2),
+      },
       color: theme.palette.primary.main,
       backgroundColor: theme.palette.primary.logo,
     },
@@ -24,15 +37,15 @@ export const useStyles = makeStyles()((theme) => {
       color: theme.palette.primary.logo,
     },
     menuIconContainer: {
-      // marginRight: "5vh",
-      marginLeft: "6vh",
+      marginLeft: theme.spacing(4),
 
       color: theme.palette.primary.main,
       backgroundColor: theme.palette.primary.logo,
+      "@media (max-width: 900px)": {
+        marginLeft: theme.spacing(2),
+      },
     },
     menuIconContainerScrolled: {
-      // marginRight: 70,
-      // marginLeft: 30,
       backgroundColor: theme.palette.primary.main,
       color: theme.palette.primary.logo,
     },

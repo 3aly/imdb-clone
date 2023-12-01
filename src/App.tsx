@@ -33,24 +33,24 @@ function App() {
   });
 
   const { classes } = useStyles();
-  const handleScroll = () => {
-    const scrollTop = window.scrollY;
-    const clientHeight = window.outerHeight;
-    const documentHeight = document.body.scrollHeight;
+  // const handleScroll = () => {
+  //   const scrollTop = window.scrollY;
+  //   const clientHeight = window.outerHeight;
+  //   const documentHeight = document.body.scrollHeight;
 
-    if (
-      scrollTop + clientHeight >= documentHeight - 1 &&
-      (hasNextPage || searchHasNextPage)
-    ) {
-      if (searchTerm.length > 0) {
-        fetchSearchNextPage();
-      } else {
-        fetchNextPage();
-      }
-    }
-  };
+  //   if (
+  //     scrollTop + clientHeight >= documentHeight - 1 &&
+  //     (hasNextPage || searchHasNextPage)
+  //   ) {
+  //     if (searchTerm.length > 0) {
+  //       fetchSearchNextPage();
+  //     } else {
+  //       fetchNextPage();
+  //     }
+  //   }
+  // };
 
-  window.addEventListener("scroll", handleScroll);
+  // window.addEventListener("scroll", handleScroll);
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column" }}>

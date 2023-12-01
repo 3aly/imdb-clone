@@ -29,9 +29,19 @@
   object-fit: scale-down;
   object-position: center;
 }
-@media container and (max-width: 480px) {
-  body {
-    background-color: lightgreen;
+@media only screen and (max-width: 900px) {
+  .container {
+    height: 40vh; /* Change height to auto on smaller screens */
+  }
+}
+@media only screen and (max-width: 600px) {
+  .container {
+    height: 30vh; /* Change height to auto on smaller screens */
+  }
+}
+@media only screen and (max-width: 400px) {
+  .container {
+    height: 20vh; /* Change height to auto on smaller screens */
   }
 }
 .search-bar {

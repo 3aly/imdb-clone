@@ -14,6 +14,12 @@ export const useStyles = makeStyles()((theme) => {
       },
       color: theme.palette.primary.main,
       "@media (max-width: 900px)": {
+        width: "70%",
+      },
+      "@media (max-width: 600px)": {
+        width: "90%",
+      },
+      "@media (max-width: 400px)": {
         width: "100%",
       },
       "& .MuiOutlinedInput-root": {

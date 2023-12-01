@@ -1,4 +1,3 @@
-import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -14,11 +13,12 @@ import DragHandleRoundedIcon from "@mui/icons-material/DragHandleRounded";
 import { quickStyles } from "../../../constants";
 import { NavBarProps } from "../../../types";
 import { useStyles } from "./Navbar.styles";
+import { useState, MouseEvent, useEffect } from "react";
 
 export default function NavBar({ setSearchTerm }: NavBarProps) {
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
-    React.useState<null | HTMLElement>(null);
-  const [isScrolled, setIsScrolled] = React.useState(false);
+    useState<null | HTMLElement>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -26,7 +26,7 @@ export default function NavBar({ setSearchTerm }: NavBarProps) {
     setMobileMoreAnchorEl(null);
   };
 
-  const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+  const handleMobileMenuOpen = (event: MouseEvent<HTMLElement>) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
@@ -55,9 +55,9 @@ export default function NavBar({ setSearchTerm }: NavBarProps) {
 
   const { classes } = useStyles();
 
-  React.useEffect(() => {
+  useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 60) {
+      if (window.scrollY > 320) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
