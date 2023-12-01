@@ -10,54 +10,25 @@ import MoreIcon from "@mui/icons-material/MoreVert";
 import { SearchBar } from "../../molecules/index ";
 import { TvOutlined } from "@mui/icons-material";
 import { Stack, useMediaQuery } from "@mui/material";
-import { useStyles } from "./Navbar.styles";
 import DragHandleRoundedIcon from "@mui/icons-material/DragHandleRounded";
 import { quickStyles } from "../../../constants";
 import { NavBarProps } from "../../../types";
+import { useStyles } from "./Navbar.styles";
 
 export default function NavBar({ setSearchTerm }: NavBarProps) {
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
     React.useState<null | HTMLElement>(null);
   const [isScrolled, setIsScrolled] = React.useState(false);
 
-  const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
   };
 
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-    handleMobileMenuClose();
-  };
-
   const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
-
-  const menuId = "primary-search-account-menu";
-  const renderMenu = (
-    <Menu
-      anchorEl={anchorEl}
-      anchorOrigin={{
-        vertical: "top",
-        horizontal: "right",
-      }}
-      id={menuId}
-      keepMounted
-      transformOrigin={{
-        vertical: "top",
-        horizontal: "right",
-      }}
-      open={isMenuOpen}
-      onClose={handleMenuClose}
-    >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-    </Menu>
-  );
 
   const mobileMenuId = "primary-search-account-menu-mobile";
   const renderMobileMenu = (
@@ -106,19 +77,18 @@ export default function NavBar({ setSearchTerm }: NavBarProps) {
         <Toolbar className={classes.toolbarContainer}>
           <Stack direction="row" alignItems="center">
             <IconButton
-              // size={quickStyles.responsiveIcons}
-              // size="large"
+              size="large"
               className={`${classes.logoIconContainer} ${
                 isScrolled && classes.logoIconContainerScrolled
               }`}
             >
               <TvOutlined sx={quickStyles.responsiveIcons} />
             </IconButton>
-            {/* <Box sx={quickStyles.hiddenSmall}> */}
-            <Typography variant="h6" color={"primary"} component="div">
-              MovieBox
-            </Typography>
-            {/* </Box> */}
+            <Box sx={quickStyles.hiddenSmall}>
+              <Typography variant="h6" color={"primary"} component="div">
+                MovieBox
+              </Typography>
+            </Box>
           </Stack>
 
           <SearchBar
@@ -138,8 +108,12 @@ export default function NavBar({ setSearchTerm }: NavBarProps) {
                   isScrolled && classes.menuIconContainer
                 }`}
                 color={"primary"}
+                size="large"
               >
-                <DragHandleRoundedIcon fontSize="large" />
+                <DragHandleRoundedIcon
+                  // fontSize="large"
+                  sx={quickStyles.responsiveIcons}
+                />
               </IconButton>
             </Box>
             <Box sx={quickStyles.hiddenBig}>
@@ -147,18 +121,18 @@ export default function NavBar({ setSearchTerm }: NavBarProps) {
                 className={`${classes.menuIconContainer} ${
                   isScrolled && classes.menuIconContainerScrolled
                 }`}
+                size="large"
                 onClick={handleMobileMenuOpen}
                 aria-controls={mobileMenuId}
                 color={"primary"}
               >
-                <MoreIcon fontSize="large" />
+                <MoreIcon sx={quickStyles.responsiveIcons} />
               </IconButton>
             </Box>
           </Stack>
         </Toolbar>
       </AppBar>
       {renderMobileMenu}
-      {renderMenu}
     </Box>
   );
 }
