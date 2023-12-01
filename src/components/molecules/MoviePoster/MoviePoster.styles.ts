@@ -24,5 +24,24 @@ export const useStyles = makeStyles()(() => {
     mediaContainer: {
       height: "50vh",
     },
+    paper: {
+      padding: 20,
+      textAlign: "center",
+    },
+    poster: {
+      width: "100%",
+      height: "auto",
+    },
+    modal: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    "@media (max-width: 600px)": {
+      paper: {
+        width: "1%",
+        margin: "0 auto",
+      },
+    },
   };
 });

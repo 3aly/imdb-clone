@@ -64,9 +64,7 @@ function App() {
           }
         />
         <Movies {...{ moviesData }} />
-        <Loader
-          isLoading={isFetchingNextPage || isFetchingNextSearchPage || true}
-        />
+        <Loader isLoading={isFetchingNextPage || isFetchingNextSearchPage} />
         <Footer />
 
         <ScrollToTopButton />

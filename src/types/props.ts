@@ -7,6 +7,7 @@ export type MoviePosterProps = {
   rating?: number;
   lang?: string;
   date?: string;
+  overview?: string;
 };
 export type MoviesProps = {
   prop?: string;
