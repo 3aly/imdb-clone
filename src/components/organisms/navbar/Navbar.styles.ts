@@ -2,27 +2,39 @@ import { makeStyles } from "tss-react/mui";
 
 export const useStyles = makeStyles()((theme) => {
   return {
-    AppBarContainer: {
+    appBar: {
       backgroundColor: "transparent",
       boxShadow: "none",
-      marginX: 5,
-
-      padding: 15,
+      transition: "background-color 0.3s ease-in-out",
     },
-    ToolbarContainer: {
+    appBarScrolled: {
+      backgroundColor: theme.palette.primary.logo,
+    },
+    toolbarContainer: {
+      margin: "0.5% 5%",
       justifyContent: "space-between",
     },
-    LogoIconContainer: {
-      marginLeft: 70,
-      marginRight: 30,
-
+    logoIconContainer: {
+      marginRight: "3vh",
+      color: theme.palette.primary.main,
       backgroundColor: theme.palette.primary.logo,
     },
-    MenuIconContainer: {
-      marginRight: 70,
-      marginLeft: 30,
+    logoIconContainerScrolled: {
+      backgroundColor: theme.palette.primary.main,
+      color: theme.palette.primary.logo,
+    },
+    menuIconContainer: {
+      // marginRight: "5vh",
+      marginLeft: "6vh",
 
+      color: theme.palette.primary.main,
       backgroundColor: theme.palette.primary.logo,
+    },
+    menuIconContainerScrolled: {
+      // marginRight: 70,
+      // marginLeft: 30,
+      backgroundColor: theme.palette.primary.main,
+      color: theme.palette.primary.logo,
     },
   };
 });

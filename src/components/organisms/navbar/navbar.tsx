@@ -9,7 +9,7 @@ import Menu from "@mui/material/Menu";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import { SearchBar } from "../../molecules/index ";
 import { TvOutlined } from "@mui/icons-material";
-import { Stack } from "@mui/material";
+import { Stack, useMediaQuery } from "@mui/material";
 import { useStyles } from "./Navbar.styles";
 import DragHandleRoundedIcon from "@mui/icons-material/DragHandleRounded";
 import { quickStyles } from "../../../constants";
@@ -19,6 +19,7 @@ export default function NavBar({ setSearchTerm }: NavBarProps) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
     React.useState<null | HTMLElement>(null);
+  const [isScrolled, setIsScrolled] = React.useState(false);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -82,15 +83,33 @@ export default function NavBar({ setSearchTerm }: NavBarProps) {
   );
 
   const { classes } = useStyles();
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 60) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return;
+  }, []);
+  console.log("isScrolling", useMediaQuery("(min-scroll-y: 40px)"));
   return (
     <Box className="container">
-      <AppBar className={classes.AppBarContainer}>
-        <Toolbar className={classes.ToolbarContainer}>
+      <AppBar
+        className={`${classes.appBar} ${isScrolled && classes.appBarScrolled}`}
+      >
+        <Toolbar className={classes.toolbarContainer}>
           <Stack direction="row" alignItems="center">
             <IconButton
               size="large"
-              color="primary"
-              className={classes.LogoIconContainer}
+              className={`${classes.logoIconContainer} ${
+                isScrolled && classes.logoIconContainerScrolled
+              }`}
             >
               <TvOutlined />
             </IconButton>
@@ -114,7 +133,9 @@ export default function NavBar({ setSearchTerm }: NavBarProps) {
 
             <Box sx={quickStyles.hiddenSmall}>
               <IconButton
-                className={classes.MenuIconContainer}
+                className={`${classes.menuIconContainer} ${
+                  isScrolled && classes.menuIconContainer
+                }`}
                 color={"primary"}
               >
                 <DragHandleRoundedIcon fontSize="large" />
@@ -122,7 +143,9 @@ export default function NavBar({ setSearchTerm }: NavBarProps) {
             </Box>
             <Box sx={quickStyles.hiddenBig}>
               <IconButton
-                className={classes.MenuIconContainer}
+                className={`${classes.menuIconContainer} ${
+                  isScrolled && classes.menuIconContainerScrolled
+                }`}
                 onClick={handleMobileMenuOpen}
                 aria-controls={mobileMenuId}
                 color={"primary"}

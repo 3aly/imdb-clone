@@ -3,7 +3,8 @@ import { makeStyles } from "tss-react/mui";
 export const useStyles = makeStyles()((theme) => {
   return {
     SearchBarStyle: {
-      width: "40%",
+      width: "50%",
+
       input: { color: "white" },
       color: theme.palette.primary.main,
       "& .MuiOutlinedInput-root": {

@@ -10,7 +10,6 @@ export const SearchBar = ({ title, setSearchTerm }: SearchBarProps) => {
   return (
     <>
       <TextField
-        fullWidth
         className={classes.SearchBarStyle}
         label={title}
         InputLabelProps={{
