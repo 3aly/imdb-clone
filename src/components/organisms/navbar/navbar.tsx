@@ -106,18 +106,19 @@ export default function NavBar({ setSearchTerm }: NavBarProps) {
         <Toolbar className={classes.toolbarContainer}>
           <Stack direction="row" alignItems="center">
             <IconButton
-              size="large"
+              // size={quickStyles.responsiveIcons}
+              // size="large"
               className={`${classes.logoIconContainer} ${
                 isScrolled && classes.logoIconContainerScrolled
               }`}
             >
-              <TvOutlined />
+              <TvOutlined sx={quickStyles.responsiveIcons} />
             </IconButton>
-            <Box sx={quickStyles.hiddenSmall}>
-              <Typography variant="h6" color={"primary"} component="div">
-                MovieBox
-              </Typography>
-            </Box>
+            {/* <Box sx={quickStyles.hiddenSmall}> */}
+            <Typography variant="h6" color={"primary"} component="div">
+              MovieBox
+            </Typography>
+            {/* </Box> */}
           </Stack>
 
           <SearchBar
