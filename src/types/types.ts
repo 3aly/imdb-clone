@@ -6,6 +6,7 @@ export type MovieType = {
   original_language: string;
   overview: string;
   release_date: string;
+  genre_ids: [];
 };
 export type MoviesDataType = {
   results: MovieType[];

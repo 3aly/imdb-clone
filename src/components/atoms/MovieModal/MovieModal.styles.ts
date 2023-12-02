@@ -25,6 +25,9 @@ export const useStyles = makeStyles()((theme) => {
     title: {
       marginBottom: theme.spacing(2),
     },
+    subTitle: {
+      marginBottom: theme.spacing(1),
+    },
     description: {},
   };
 });

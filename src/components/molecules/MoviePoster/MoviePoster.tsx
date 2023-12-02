@@ -19,6 +19,7 @@ export const MoviePoster = ({
   lang,
   date,
   overview,
+  genres,
 }: MoviePosterProps) => {
   const [open, setOpen] = useState(false);
 
@@ -62,9 +63,14 @@ export const MoviePoster = ({
             <ImdbRating rating={rating} />
             <RottenRating rating={rating} />
           </Stack>
+          <Typography color={"primary.light"} variant="subtitle1">
+            {genres?.join(", ")}
+          </Typography>
         </CardContent>
       </Card>
-      <MovieModal {...{ open, date, setOpen, title, overview, posterUrl }} />
+      <MovieModal
+        {...{ open, date, setOpen, title, overview, posterUrl, genres }}
+      />
     </>
   );
 };

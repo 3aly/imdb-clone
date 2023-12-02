@@ -8,6 +8,7 @@ export type MoviePosterProps = {
   lang?: string;
   date?: string;
   overview?: string;
+  genres?: Array<string>;
 };
 export interface MovieModalProps extends MoviePosterProps {
   open: boolean;

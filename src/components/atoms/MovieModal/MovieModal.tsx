@@ -8,7 +8,7 @@ export const MovieModal = ({
   title,
   date,
   posterUrl,
-
+  genres,
   overview,
 }: MovieModalProps) => {
   const handleClose = () => {
@@ -31,14 +31,21 @@ export const MovieModal = ({
               <Typography variant="h5" className={classes.title}>
                 {title}
               </Typography>
+
               <Typography
                 color={"primary.text"}
                 variant="subtitle1"
-                className={classes.title}
+                className={classes.subTitle}
               >
                 {date}
               </Typography>
-
+              <Typography
+                color={"primary.light"}
+                variant="subtitle1"
+                className={classes.subTitle}
+              >
+                {genres?.join(", ")}
+              </Typography>
               <Typography
                 color={"primary.grey"}
                 variant="subtitle1"
