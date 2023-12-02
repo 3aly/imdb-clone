@@ -9,6 +9,11 @@ export type MoviePosterProps = {
   date?: string;
   overview?: string;
 };
+export interface MovieModalProps extends MoviePosterProps {
+  open: boolean;
+  setOpen: Dispatch<SetStateAction<boolean>>;
+}
+
 export type MoviesProps = {
   prop?: string;
   moviesData: Array<MoviesDataType>;

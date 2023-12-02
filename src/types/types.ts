@@ -4,6 +4,7 @@ export type MovieType = {
   poster_path: string;
   vote_average: number;
   original_language: string;
+  overview: string;
   release_date: string;
 };
 export type MoviesDataType = {

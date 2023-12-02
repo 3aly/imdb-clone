@@ -14,15 +14,17 @@ function App() {
   const [moviesData, setMoviesData] = useState<Array<MoviesDataType>>([]);
   const [searchTerm, setSearchTerm] = useState<string>("");
 
-  const { hasNextPage, isFetchingNextPage, fetchNextPage } = useFetchAllMovies({
-    onSuccess: (data: { pages: [] }) => {
-      setMoviesData(data.pages);
-    },
-    enabled: searchTerm?.length > 0 ? false : true,
-  });
+  const { hasNextPage, isFetchingNextPage, fetchNextPage, isLoading } =
+    useFetchAllMovies({
+      onSuccess: (data: { pages: [] }) => {
+        setMoviesData(data.pages);
+      },
+      enabled: searchTerm?.length > 0 ? false : true,
+    });
 
   const {
     hasNextPage: searchHasNextPage,
+    isLoading: isSearchLoading,
     isFetchingNextPage: isFetchingNextSearchPage,
     fetchNextPage: fetchSearchNextPage,
   } = useSearchMovies(searchTerm, {
@@ -33,32 +35,34 @@ function App() {
   });
 
   const { classes } = useStyles();
-  // const handleScroll = () => {
-  //   const scrollTop = window.scrollY;
-  //   const clientHeight = window.outerHeight;
-  //   const documentHeight = document.body.scrollHeight;
+  const handleScroll = () => {
+    const scrollTop = window.scrollY;
+    const clientHeight = window.outerHeight;
+    const documentHeight = document.body.scrollHeight;
 
-  //   if (
-  //     scrollTop + clientHeight >= documentHeight - 1 &&
-  //     (hasNextPage || searchHasNextPage)
-  //   ) {
-  //     if (searchTerm.length > 0) {
-  //       fetchSearchNextPage();
-  //     } else {
-  //       fetchNextPage();
-  //     }
-  //   }
-  // };
+    if (
+      scrollTop + clientHeight >= documentHeight - 1 &&
+      (hasNextPage || searchHasNextPage)
+    ) {
+      if (searchTerm.length > 0) {
+        fetchSearchNextPage();
+      } else {
+        fetchNextPage();
+      }
+    }
+  };
 
-  // window.addEventListener("scroll", handleScroll);
+  window.addEventListener("scroll", handleScroll);
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column" }}>
+    <Box className={classes.main}>
       <NavBar setSearchTerm={setSearchTerm} />
       <Box className={classes.container}>
         <SectionTitle
           title={
-            searchTerm && !(isFetchingNextPage || isFetchingNextSearchPage)
+            isSearchLoading || isLoading
+              ? "Loading..."
+              : searchTerm && !(isFetchingNextPage || isFetchingNextSearchPage)
               ? "Search Results..."
               : "Featured Movie"
           }

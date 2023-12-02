@@ -1,6 +1,6 @@
 import { makeStyles } from "tss-react/mui";
 
-export const useStyles = makeStyles()(() => {
+export const useStyles = makeStyles()((theme) => {
   return {
     logoContainer: {
       display: "flex",
@@ -9,7 +9,7 @@ export const useStyles = makeStyles()(() => {
       justifyContent: "space-between",
     },
     logo: {
-      marginRight: "11%",
+      marginRight: theme.spacing(1),
     },
   };
 });

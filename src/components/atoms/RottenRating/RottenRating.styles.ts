@@ -1,17 +1,15 @@
 import { makeStyles } from "tss-react/mui";
 
-export const useStyles = makeStyles()(() => {
+export const useStyles = makeStyles()((theme) => {
   return {
     logoContainer: {
       display: "flex",
       flexDirection: "row",
-      width: "7vh",
+      width: theme.spacing(8),
       alignItems: "center",
       alignContent: "center",
       justifyContent: "space-between",
     },
-    text: {
-      marginLeft: "11%",
-    },
+    text: {},
   };
 });
