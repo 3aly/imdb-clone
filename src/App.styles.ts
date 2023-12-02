@@ -17,14 +17,7 @@ export const useStyles = makeStyles()((theme) => {
         marginRight: theme.spacing(2),
       },
     },
-    loader: {
-      alignSelf: "center",
-      display: "flex",
-      alignContent: "center",
-      alignItems: "center",
-      justifyContent: "center",
-      background: theme.palette.primary.logo,
-    },
+    loader: {},
     loading: {
       display: "block",
     },

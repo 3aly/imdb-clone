@@ -16,7 +16,6 @@ export interface MovieModalProps extends MoviePosterProps {
 }
 
 export type MoviesProps = {
-  prop?: string;
   moviesData: Array<MoviesDataType>;
 };
 
