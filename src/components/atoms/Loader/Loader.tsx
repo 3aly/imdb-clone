@@ -1,7 +1,8 @@
 import CircularProgress from "@mui/material/CircularProgress";
 import { useStyles } from "./Loader.styles";
+import { LoaderProps } from "../../../types";
 
-export const Loader = ({ isLoading = true }) => {
+export const Loader = ({ isLoading = true }: LoaderProps) => {
   const { classes } = useStyles();
   return (
     <>

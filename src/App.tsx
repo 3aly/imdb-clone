@@ -70,20 +70,28 @@ function App() {
     <Box className={classes.main}>
       <NavBar {...{ setSearchTerm, isScrolled }} />
       <Box className={classes.container}>
-        <SectionTitle
-          title={
-            isSearchLoading || isLoading
-              ? "Loading..."
-              : searchTerm && !(isFetchingNextPage || isFetchingNextSearchPage)
-              ? "Search Results..."
-              : "Featured Movie"
-          }
-        />
-        <Movies {...{ moviesData }} />
-        <Loader isLoading={isFetchingNextPage || isFetchingNextSearchPage} />
-        <Footer />
+        {isSearchLoading || isLoading ? (
+          <>
+            <Loader />
+          </>
+        ) : (
+          <>
+            <SectionTitle
+              title={
+                searchTerm && !(isFetchingNextPage || isFetchingNextSearchPage)
+                  ? "Search Results..."
+                  : "Featured Movie"
+              }
+            />
+            <Movies {...{ moviesData }} />
+            <Loader
+              isLoading={isFetchingNextPage || isFetchingNextSearchPage}
+            />
+            <Footer />
 
-        <ScrollToTopButton />
+            <ScrollToTopButton />
+          </>
+        )}
       </Box>
     </Box>
   );

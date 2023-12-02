@@ -34,3 +34,6 @@ export type SearchBarProps = {
 export type NavBarProps = {
   setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
 };
+export type LoaderProps = {
+  isLoading?: boolean;
+};
