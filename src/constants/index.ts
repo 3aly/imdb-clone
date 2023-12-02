@@ -1,5 +1,11 @@
 import { createTheme, responsiveFontSizes } from "@mui/material";
-import { hiddenBig, hiddenSmall, responsiveIcons } from "./themes/quickstyles";
+import {
+  hiddenBig,
+  hiddenSmall,
+  responsiveIcons,
+  responsiveGrid,
+  responsiveGap,
+} from "./themes/quickstyles";
 export const theme = responsiveFontSizes(
   createTheme({
     typography: {
@@ -38,9 +44,6 @@ export const theme = responsiveFontSizes(
       },
       secondary: {
         main: "#111827",
-        // light: "#111827",
-        // logo: "#BE123C",
-        // text: "#6B7280",
       },
     },
   })
@@ -50,4 +53,6 @@ export const quickStyles = {
   hiddenBig,
   hiddenSmall,
   responsiveIcons,
+  responsiveGrid,
+  responsiveGap,
 };
