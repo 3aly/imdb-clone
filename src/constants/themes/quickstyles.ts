@@ -22,4 +22,5 @@ export const layouts: { [key: string]: Layout } = {
   selfStart: { alignSelf: "flex-start" },
   selfCenter: { alignSelf: "center" },
   contentStart: { alignContent: "flex-start" },
+  contentCenter: { alignContent: "center" },
 };

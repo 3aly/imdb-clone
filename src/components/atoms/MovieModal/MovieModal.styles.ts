@@ -1,16 +1,15 @@
+import { quickStyles } from "./../../../constants/index";
 import { makeStyles } from "tss-react/mui";
 
 export const useStyles = makeStyles()((theme) => {
   return {
     modal: {
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
+      ...quickStyles.layouts.row,
+      ...quickStyles.layouts.allCentered,
     },
     gridContainer: {
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "flex-end",
+      ...quickStyles.layouts.col,
+      ...quickStyles.layouts.justifyEnd,
     },
     paper: {
       backgroundColor: theme.palette.background.paper,

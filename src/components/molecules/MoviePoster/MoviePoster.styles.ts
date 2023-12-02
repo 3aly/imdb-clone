@@ -1,3 +1,4 @@
+import { quickStyles } from "./../../../constants/index";
 import { makeStyles } from "tss-react/mui";
 
 export const useStyles = makeStyles()((theme) => {
@@ -8,15 +9,16 @@ export const useStyles = makeStyles()((theme) => {
       margin: theme.spacing(2),
     },
     cardContainer: {
+      ...quickStyles.layouts.xCentered,
+
       height: "auto",
-      justifyContent: "center",
       boxShadow: "none",
       borderRadius: 0,
       width: theme.spacing(27),
     },
     cardContentContainer: {
-      display: "flex",
-      flexDirection: "column",
+      ...quickStyles.layouts.col,
+
       padding: 0,
       marginTop: theme.spacing(1),
     },
@@ -24,20 +26,19 @@ export const useStyles = makeStyles()((theme) => {
       overflow: "hidden",
       textOverflow: "ellipsis",
       display: "-webkit-box",
-      "-webkit-line-clamp": 2, // Limit to 2 lines
+      "-webkit-line-clamp": 2,
       "-webkit-box-orient": "vertical",
     },
     mediaContainer: {
       height: theme.spacing(40),
-      display: "flex",
-
-      alignItems: "flex-start",
-      alignContent: "flex-start",
-      justifyContent: "flex-end",
+      ...quickStyles.layouts.row,
+      ...quickStyles.layouts.alignStart,
+      ...quickStyles.layouts.contentStart,
+      ...quickStyles.layouts.justifyEnd,
     },
     logoContainer: {
-      justifyContent: "space-between",
-      flexDirection: "row",
+      ...quickStyles.layouts.row,
+      ...quickStyles.layouts.justifyBetween,
     },
   };
 });
