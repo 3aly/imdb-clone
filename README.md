@@ -1,5 +1,5 @@
 ![image](https://github.com/3aly/imdb-clone/assets/77078308/2b2f55ce-26e0-44ed-a8ce-dbae4281bda0)# IMDb Clone
-![IMDb Clone](![image](https://github.com/3aly/imdb-clone/assets/77078308/6d5e0585-0f17-4ee4-9bb9-6b8584689986)
+!(![image](https://github.com/3aly/imdb-clone/assets/77078308/6d5e0585-0f17-4ee4-9bb9-6b8584689986)
 )
 <img width="1346" alt="image" src="https://github.com/3aly/imdb-clone/assets/77078308/0a0264b7-4177-406d-b5d1-0d8d5bafdc8b">
 <img width="773" alt="image" src="https://github.com/3aly/imdb-clone/assets/77078308/5b88e3aa-55e5-4b1e-857e-4964766d9214">
