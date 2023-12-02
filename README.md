@@ -1,9 +1,6 @@
 ![image](https://github.com/3aly/imdb-clone/assets/77078308/2b2f55ce-26e0-44ed-a8ce-dbae4281bda0)
-
 ![Image 1](https://github.com/3aly/imdb-clone/blob/assets/77078308/0a0264b7-4177-406d-b5d1-0d8d5bafdc8b)
-
 ![Image 2](https://github.com/3aly/imdb-clone/blob/assets/77078308/5b88e3aa-55e5-4b1e-857e-4964766d9214)
-
 ![Image 3](https://github.com/3aly/imdb-clone/blob/assets/77078308/e0cb8741-d280-4aa8-aa89-5db9b83f2fc8)
 
 
