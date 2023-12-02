@@ -5,6 +5,7 @@ import {
   responsiveIcons,
   responsiveGrid,
   responsiveGap,
+  layouts,
 } from "./themes/quickstyles";
 export const theme = responsiveFontSizes(
   createTheme({
@@ -55,4 +56,5 @@ export const quickStyles = {
   responsiveIcons,
   responsiveGrid,
   responsiveGap,
+  layouts,
 };
