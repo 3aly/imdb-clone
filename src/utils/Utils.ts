@@ -5,11 +5,11 @@ export const handleLinkClick = (url: string) => {
 
 export function getGenreNameById(
   genreId: number,
-  genreList: []
-): string | undefined {
+  genreList: Array<{ id: number; name: string }>
+): string {
   console.log("genreId", genreId);
   const genre: { name: string } = genreList.find(
-    (genre: { id: number }) => genre.id === genreId
+    (genre: { id: number }) => genre?.id === genreId
   );
   if (genre) {
     return genre?.name;
