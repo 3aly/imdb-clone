@@ -1,18 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import "./App.css";
-import { QueryClient, QueryClientProvider } from "react-query";
 import { useFetchAllMovies, useSearchMovies } from "./hooks";
 import { SectionTitle } from "./components/molecules/index ";
 import { Footer, Movies, NavBar } from "./components/organisms/index ";
-import { Box, ThemeProvider } from "@mui/material";
-import { theme } from "./constants";
+import { Box } from "@mui/material";
 import { MoviesDataType } from "./types";
+import { ProvidersWrapper } from "./ProvidersWrapper";
 import { useStyles } from "./App.styles";
 import { Loader, ScrollToTopButton } from "./components/atoms/index ";
 function App() {
   const [moviesData, setMoviesData] = useState<Array<MoviesDataType>>([]);
   const [searchTerm, setSearchTerm] = useState<string>("");
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const { hasNextPage, isFetchingNextPage, fetchNextPage, isLoading } =
     useFetchAllMovies({
@@ -53,10 +53,22 @@ function App() {
   };
 
   window.addEventListener("scroll", handleScroll);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
 
+    window.addEventListener("scroll", handleScroll);
+
+    return;
+  }, []);
   return (
     <Box className={classes.main}>
-      <NavBar setSearchTerm={setSearchTerm} />
+      <NavBar {...{ setSearchTerm, isScrolled }} />
       <Box className={classes.container}>
         <SectionTitle
           title={
@@ -78,14 +90,10 @@ function App() {
 }
 
 const AppWithProvider = () => {
-  const queryClient = new QueryClient();
-
   return (
-    <ThemeProvider theme={theme}>
-      <QueryClientProvider client={queryClient}>
-        <App />
-      </QueryClientProvider>
-    </ThemeProvider>
+    <ProvidersWrapper>
+      <App />
+    </ProvidersWrapper>
   );
 };
 
