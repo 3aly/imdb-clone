@@ -8,19 +8,23 @@ import Menu from "@mui/material/Menu";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import { SearchBar } from "../../molecules/index ";
 import { TvOutlined } from "@mui/icons-material";
-import { Stack, useMediaQuery } from "@mui/material";
+import { Stack } from "@mui/material";
 import DragHandleRoundedIcon from "@mui/icons-material/DragHandleRounded";
 import { quickStyles } from "../../../constants";
 import { NavBarProps } from "../../../types";
 import { useStyles } from "./Navbar.styles";
-import { useState, MouseEvent, useEffect } from "react";
+import { useState, MouseEvent, useEffect, useRef } from "react";
 
 export default function NavBar({ setSearchTerm }: NavBarProps) {
+  const navbarRef = useRef<HTMLDivElement>(null);
+
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
     useState<null | HTMLElement>(null);
   const [isScrolled, setIsScrolled] = useState(false);
 
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+  const { classes } = useStyles();
+  const mobileMenuId = "primary-search-account-menu-mobile";
 
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
@@ -30,7 +34,6 @@ export default function NavBar({ setSearchTerm }: NavBarProps) {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
-  const mobileMenuId = "primary-search-account-menu-mobile";
   const renderMobileMenu = (
     <Menu
       anchorEl={mobileMoreAnchorEl}
@@ -53,11 +56,10 @@ export default function NavBar({ setSearchTerm }: NavBarProps) {
     </Menu>
   );
 
-  const { classes } = useStyles();
-
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 320) {
+      const navBarHeight = navbarRef?.current?.offsetHeight ?? 0;
+      if (window.scrollY > navBarHeight) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -68,8 +70,9 @@ export default function NavBar({ setSearchTerm }: NavBarProps) {
 
     return;
   }, []);
+
   return (
-    <Box className="container">
+    <Box className="container" ref={navbarRef}>
       <AppBar
         className={`${classes.appBar} ${isScrolled && classes.appBarScrolled}`}
       >
@@ -78,7 +81,7 @@ export default function NavBar({ setSearchTerm }: NavBarProps) {
             <IconButton
               size="large"
               className={`${classes.logoIconContainer} ${
-                isScrolled && classes.logoIconContainerScrolled
+                isScrolled && classes.iconScrolled
               }`}
             >
               <TvOutlined sx={quickStyles.responsiveIcons} />
@@ -104,21 +107,18 @@ export default function NavBar({ setSearchTerm }: NavBarProps) {
             <Box sx={quickStyles.hiddenSmall}>
               <IconButton
                 className={`${classes.menuIconContainer} ${
-                  isScrolled && classes.menuIconContainer
+                  isScrolled && classes.iconScrolled
                 }`}
                 color={"primary"}
                 size="large"
               >
-                <DragHandleRoundedIcon
-                  // fontSize="large"
-                  sx={quickStyles.responsiveIcons}
-                />
+                <DragHandleRoundedIcon sx={quickStyles.responsiveIcons} />
               </IconButton>
             </Box>
             <Box sx={quickStyles.hiddenBig}>
               <IconButton
                 className={`${classes.menuIconContainer} ${
-                  isScrolled && classes.menuIconContainerScrolled
+                  isScrolled && classes.iconScrolled
                 }`}
                 size="large"
                 onClick={handleMobileMenuOpen}

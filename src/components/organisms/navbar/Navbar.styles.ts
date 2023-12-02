@@ -32,7 +32,7 @@ export const useStyles = makeStyles()((theme) => {
       color: theme.palette.primary.main,
       backgroundColor: theme.palette.primary.logo,
     },
-    logoIconContainerScrolled: {
+    iconScrolled: {
       backgroundColor: theme.palette.primary.main,
       color: theme.palette.primary.logo,
     },
@@ -44,10 +44,6 @@ export const useStyles = makeStyles()((theme) => {
       "@media (max-width: 900px)": {
         marginLeft: theme.spacing(2),
       },
-    },
-    menuIconContainerScrolled: {
-      backgroundColor: theme.palette.primary.main,
-      color: theme.palette.primary.logo,
     },
   };
 });

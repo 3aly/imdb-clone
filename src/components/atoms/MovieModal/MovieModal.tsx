@@ -28,7 +28,7 @@ export const MovieModal = ({
               />
             </Grid>
             <Grid item xs={6} md={6} className={classes.gridContainer}>
-              <Typography variant="h5" className={classes.title}>
+              <Typography variant="h4" className={classes.title}>
                 {title}
               </Typography>
 
