@@ -5,7 +5,6 @@ export const useStyles = makeStyles()((theme) => {
     container: {
       display: "flex",
       flexDirection: "column",
-      backgroundColor: "red",
       alignItems: "center",
       height: theme.spacing(20),
 
