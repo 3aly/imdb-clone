@@ -6,7 +6,6 @@ import { apis } from "../envConstants";
 // import {httpClient} from '@services/httpClient';
 
 const querySearchMovies = ({ page }: { page: number }) => {
-  console.log("page", page);
   return axios.get(`${apis.discover}&page=${page}`).then((res) => res.data);
 };
 export default querySearchMovies;

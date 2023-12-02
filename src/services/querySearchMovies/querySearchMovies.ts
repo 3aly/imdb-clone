@@ -12,7 +12,6 @@ const querySearchMovies = ({
   page: number;
   movie: string;
 }) => {
-  console.log("page", movie);
   return axios
     .get(`${apis.search}&page=${page}&query=${movie}`)
     .then((res) => res.data);

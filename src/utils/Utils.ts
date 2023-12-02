@@ -7,7 +7,6 @@ export function getGenreNameById(
   genreId: number,
   genreList: Array<{ id: number; name: string }>
 ): string {
-  console.log("genreId", genreId);
   const genre: { name: string } = genreList.find(
     (genre: { id: number }) => genre?.id === genreId
   );

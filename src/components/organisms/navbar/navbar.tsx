@@ -68,7 +68,6 @@ export default function NavBar({ setSearchTerm }: NavBarProps) {
 
     return;
   }, []);
-  console.log("isScrolling", useMediaQuery("(min-scroll-y: 40px)"));
   return (
     <Box className="container">
       <AppBar
