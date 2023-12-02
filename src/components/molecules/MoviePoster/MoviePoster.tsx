@@ -1,20 +1,15 @@
 import {
-  Box,
   Card,
   CardContent,
   CardMedia,
-  Grid,
   IconButton,
-  Modal,
-  Paper,
   Stack,
   Typography,
-  useMediaQuery,
 } from "@mui/material";
-import { ImdbRating, RottenRating } from "../../atoms/index ";
+import { ImdbRating, MovieModal, RottenRating } from "../../atoms/index ";
 import { useStyles } from "./MoviePoster.styles";
 import { MoviePosterProps } from "../../../types";
-import AddRoundedIcon from "@mui/icons-material/AddRounded";
+import MoreIcon from "@mui/icons-material/MoreVert";
 import { useState } from "react";
 
 export const MoviePoster = ({
@@ -28,22 +23,25 @@ export const MoviePoster = ({
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
-    // setSelectedMovie(movie);
     setOpen(true);
   };
-  const handleClose = () => {
-    setOpen(false);
-  };
-  const isMobile = useMediaQuery("(max-width: 600px)");
+
   const { classes } = useStyles();
   return (
     <>
-      <Card className={classes.CardContainer}>
+      <Card className={classes.cardContainer}>
         <CardMedia
           className={classes.mediaContainer}
           image={`https://image.tmdb.org/t/p/w500${posterUrl}`}
           title={title}
-        />
+        >
+          <IconButton
+            onClick={handleOpen}
+            className={classes.moreIconContainer}
+          >
+            <MoreIcon />
+          </IconButton>
+        </CardMedia>
         <CardContent className={classes.cardContentContainer}>
           <Typography
             variant="subtitle1"
@@ -60,35 +58,13 @@ export const MoviePoster = ({
           >
             {title}
           </Typography>
-          <Stack direction={"row"} sx={{ justifyContent: "space-between" }}>
+          <Stack className={classes.logoContainer}>
             <ImdbRating rating={rating} />
             <RottenRating rating={rating} />
           </Stack>
-          <Box>
-            <IconButton onClick={handleOpen}>
-              <AddRoundedIcon />
-            </IconButton>
-          </Box>
         </CardContent>
       </Card>
-      <Modal open={open} onClose={handleClose} className={classes.modal}>
-        <Paper className={classes.paper}>
-          <CardMedia
-            className={classes.mediaContainer}
-            image={`https://image.tmdb.org/t/p/w500${posterUrl}`}
-            title={title}
-          />
-          <Grid container>
-            <Grid item></Grid>
-            <Grid item>
-              <Typography variant="h5">{title}</Typography>
-            </Grid>
-            <Grid item>
-              <p>{overview}</p>
-            </Grid>
-          </Grid>
-        </Paper>
-      </Modal>
+      <MovieModal {...{ open, date, setOpen, title, overview, posterUrl }} />
     </>
   );
 };

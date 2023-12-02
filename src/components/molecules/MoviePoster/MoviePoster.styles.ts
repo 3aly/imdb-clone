@@ -1,18 +1,24 @@
 import { makeStyles } from "tss-react/mui";
 
-export const useStyles = makeStyles()(() => {
+export const useStyles = makeStyles()((theme) => {
   return {
-    CardContainer: {
+    moreIconContainer: {
+      background: "rgba(243, 244, 246, 0.50)",
+      backdropFilter: "blur(1px)",
+      margin: theme.spacing(2),
+    },
+    cardContainer: {
       height: "auto",
       justifyContent: "center",
       boxShadow: "none",
       borderRadius: 0,
+      width: theme.spacing(27),
     },
     cardContentContainer: {
       display: "flex",
       flexDirection: "column",
       padding: 0,
-      marginTop: "3%",
+      marginTop: theme.spacing(1),
     },
     movieTitle: {
       overflow: "hidden",
@@ -22,26 +28,16 @@ export const useStyles = makeStyles()(() => {
       "-webkit-box-orient": "vertical",
     },
     mediaContainer: {
-      height: "50vh",
-    },
-    paper: {
-      padding: 20,
-      textAlign: "center",
-    },
-    poster: {
-      width: "100%",
-      height: "auto",
-    },
-    modal: {
+      height: theme.spacing(40),
       display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
+
+      alignItems: "flex-start",
+      alignContent: "flex-start",
+      justifyContent: "flex-end",
     },
-    "@media (max-width: 600px)": {
-      paper: {
-        width: "1%",
-        margin: "0 auto",
-      },
+    logoContainer: {
+      justifyContent: "space-between",
+      flexDirection: "row",
     },
   };
 });
