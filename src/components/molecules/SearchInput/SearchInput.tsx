@@ -2,9 +2,9 @@ import { TextField, InputAdornment } from "@mui/material";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import { quickStyles } from "../../../constants";
 import { SearchBarProps } from "../../../types";
-import { useStyles } from "./SearchBar.styles";
+import { useStyles } from "./SearchInput.styles";
 
-export const SearchBar = ({ title, setSearchTerm }: SearchBarProps) => {
+export const SearchInput = ({ title, setSearchTerm }: SearchBarProps) => {
   const { classes } = useStyles();
 
   return (
