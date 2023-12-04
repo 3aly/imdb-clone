@@ -20,12 +20,19 @@ export const useStyles = makeStyles()((theme) => {
       "@media (max-width: 900px)": {
         marginLeft: theme.spacing(2),
         marginRight: theme.spacing(2),
-        marginTop: theme.spacing(0),
+        marginTop: theme.spacing(0.5),
+        marginBottom: theme.spacing(0),
+      },
+      "@media (max-width: 400px)": {
+        marginLeft: theme.spacing(1),
+        marginRight: theme.spacing(1),
+        marginTop: theme.spacing(0.5),
         marginBottom: theme.spacing(0),
       },
     },
     logoIconContainer: {
       marginRight: theme.spacing(4),
+
       "@media (max-width: 900px)": {
         marginRight: theme.spacing(2),
       },

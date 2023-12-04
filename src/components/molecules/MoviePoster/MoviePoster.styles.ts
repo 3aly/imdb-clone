@@ -15,6 +15,9 @@ export const useStyles = makeStyles()((theme) => {
       boxShadow: "none",
       borderRadius: 0,
       width: theme.spacing(27),
+      "@media (max-width: 500px)": {
+        width: "auto",
+      },
     },
     cardContentContainer: {
       ...quickStyles.layouts.col,

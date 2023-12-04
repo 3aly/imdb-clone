@@ -14,9 +14,7 @@ export const SearchInput = ({ title, setSearchTerm }: SearchBarProps) => {
         label={title}
         InputLabelProps={{
           style: {
-            // fontSize: 20,
             lineHeight: 1,
-            // alignContent: "center",
             color: "white",
           },
         }}

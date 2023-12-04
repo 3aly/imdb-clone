@@ -15,6 +15,9 @@ export const useStyles = makeStyles()((theme) => {
       color: theme.palette.primary.main,
       "@media (max-width: 900px)": {
         width: "70%",
+        "& .MuiFormLabel-root": {
+          fontSize: 12,
+        },
       },
       "@media (max-width: 600px)": {
         width: "90%",
@@ -23,14 +26,6 @@ export const useStyles = makeStyles()((theme) => {
         width: "100%",
       },
       "& .MuiOutlinedInput-root": {
-        "& .MuiInputBase-input": {
-          // height: "2vh",
-
-          // padding: "10px 14px",
-          "@media (max-width: 900px)": {
-            // height: "1vh",
-          },
-        },
         "& fieldset": {
           borderWidth: 2,
           borderRadius: 8,
