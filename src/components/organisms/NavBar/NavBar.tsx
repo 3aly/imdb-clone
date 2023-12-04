@@ -12,8 +12,8 @@ import { Stack } from "@mui/material";
 import DragHandleRoundedIcon from "@mui/icons-material/DragHandleRounded";
 import { quickStyles } from "../../../constants";
 import { NavBarProps } from "../../../types";
+import { useStyles } from "./Navbar.styles";
 import { useState, MouseEvent, useEffect, useRef } from "react";
-import { useStyles } from "./Nav.styles";
 
 export default function NavBar({ setSearchTerm }: NavBarProps) {
   const navbarRef = useRef<HTMLDivElement>(null);
