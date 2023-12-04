@@ -1,7 +1,7 @@
 import { IconButton, Box, Link, Typography } from "@mui/material";
 import { GitHub, Instagram, LinkedIn, YouTube } from "@mui/icons-material";
 import { useStyles } from "./BottomFooter.styles";
-import { handleLinkClick } from "../../../utils/utils";
+import { handleLinkClick } from "../../../utilities/utilities";
 
 export default function Footer() {
   const { classes } = useStyles();
