@@ -1,17 +1,24 @@
 import { useInfiniteQuery } from "react-query";
 import { queryAllMovies } from "../../services";
+import { MoviesDataType } from "../../types";
 
-export const useFetchAllMovies = (rest: any) => {
+export const useFetchAllMovies = ({
+  onSuccess,
+  enabled,
+}: {
+  enabled: boolean;
+  onSuccess: (data: { pages: MoviesDataType[] }) => void;
+}) => {
   const query = useInfiniteQuery({
     queryKey: ["queryAllMovies"],
-    queryFn: ({ pageParam = 1 }) => queryAllMovies({ page: pageParam }),
-    getNextPageParam: (lastPage: [], allPages: []) => {
-      // const nextPage = lastPage.length > 0 ? allPages.length + 1 : null;
+    queryFn: ({ pageParam = 1 }: { pageParam?: number }) =>
+      queryAllMovies({ page: pageParam }),
+    getNextPageParam: (allPages: MoviesDataType[][]): number | undefined => {
       return allPages.length + 1;
     },
+    enabled: enabled,
+    onSuccess: onSuccess,
     refetchOnWindowFocus: false,
-
-    ...rest,
   });
 
   return query;

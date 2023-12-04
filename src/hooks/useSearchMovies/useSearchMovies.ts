@@ -1,19 +1,28 @@
 import { useInfiniteQuery } from "react-query";
 import { querySearchMovies } from "../../services";
+import { MoviesDataType } from "../../types";
 
-export const useSearchMovies = (moviename: string, rest: any) => {
+export const useSearchMovies = (
+  moviename: string,
+  {
+    onSuccess,
+    enabled,
+  }: {
+    enabled: boolean;
+    onSuccess: (data: { pages: MoviesDataType[] }) => void;
+  }
+) => {
   const query = useInfiniteQuery({
     queryKey: ["querySearchMovies", moviename],
     queryFn: ({ pageParam = 1 }) =>
       querySearchMovies({ page: pageParam, movie: moviename }),
-    enabled: true,
-    getNextPageParam: (lastPage: [], allPages: []) => {
-      // const nextPage = lastPage.length > 0 ? allPages.length + 1 : null;
+    getNextPageParam: (allPages: []) => {
       return allPages.length + 1;
     },
     refetchOnWindowFocus: false,
 
-    ...rest,
+    onSuccess: onSuccess,
+    enabled: enabled,
   });
 
   return query;

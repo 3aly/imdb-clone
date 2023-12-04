@@ -16,7 +16,7 @@ function App() {
 
   const { hasNextPage, isFetchingNextPage, fetchNextPage, isLoading } =
     useFetchAllMovies({
-      onSuccess: (data: { pages: [] }) => {
+      onSuccess: (data: { pages: MoviesDataType[] }) => {
         setMoviesData(data.pages);
       },
       enabled: searchTerm?.length > 0 ? false : true,
@@ -28,7 +28,7 @@ function App() {
     isFetchingNextPage: isFetchingNextSearchPage,
     fetchNextPage: fetchSearchNextPage,
   } = useSearchMovies(searchTerm, {
-    onSuccess: (data: { pages: [] }) => {
+    onSuccess: (data: { pages: MoviesDataType[] }) => {
       setMoviesData(data.pages);
     },
     enabled: searchTerm?.length > 0 ? true : false,

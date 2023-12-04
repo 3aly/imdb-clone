@@ -30,3 +30,7 @@ export interface Layout {
   alignSelf?: AlignItems;
   alignContent?: AlignItems;
 }
+export type GenreType = {
+  id: number;
+  name: string;
+};

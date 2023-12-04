@@ -1,7 +1,10 @@
-import { useQuery } from "react-query";
+import { UseQueryOptions, useQuery } from "react-query";
 import { queryFetchGenres } from "../../services";
+import { GenreType } from "../../types";
 
-export const useFetchGenres = (rest) => {
+export const useFetchGenres = (
+  rest: UseQueryOptions<{ genres: GenreType[] }, GenreType[]>
+) => {
   const query = useQuery({
     queryKey: ["useFetchGenres"],
     queryFn: () => queryFetchGenres(),

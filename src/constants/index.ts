@@ -39,12 +39,11 @@ export const theme = responsiveFontSizes(
         main: "#FFFFFF",
         light: "#9CA3AF",
         dark: "#000",
-        grey: "#111827",
-        text: "#6B7280",
-        logo: "#BE123C",
       },
       secondary: {
         main: "#111827",
+        light: "#6B7280",
+        dark: "#BE123C",
       },
     },
   })
