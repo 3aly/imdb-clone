@@ -7,11 +7,9 @@ export function getGenreNameById(
   genreId: number,
   genreList: Array<{ id: number; name: string }>
 ): string {
-  const genre: { name: string } = genreList.find(
-    (genre: { id: number }) => genre?.id === genreId
-  );
+  const genre = genreList.find((genre) => genre?.id === genreId)?.name;
   if (genre) {
-    return genre?.name;
+    return genre;
   } else {
     return "";
   }

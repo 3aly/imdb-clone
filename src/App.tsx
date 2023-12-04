@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import { useFetchAllMovies, useSearchMovies } from "./hooks";
 import { SectionTitle } from "./components/molecules/index ";
-import { Footer, Movies, NavBar } from "./components/organisms/index ";
+import { BottomFooter, Movies, NavBar } from "./components/organisms/index ";
 import { Box } from "@mui/material";
 import { MoviesDataType } from "./types";
 import { ProvidersWrapper } from "./ProvidersWrapper";
@@ -90,7 +90,7 @@ function App() {
             />
           </>
         )}
-        <Footer />
+        <BottomFooter />
 
         <ScrollToTopButton />
       </Box>

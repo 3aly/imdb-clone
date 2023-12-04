@@ -1,6 +1,6 @@
 import { IconButton, Box, Link, Typography } from "@mui/material";
 import { GitHub, Instagram, LinkedIn, YouTube } from "@mui/icons-material";
-import { useStyles } from "./Footer.styles";
+import { useStyles } from "./BottomFooter.styles";
 import { handleLinkClick } from "../../../utils/utils";
 
 export default function Footer() {
