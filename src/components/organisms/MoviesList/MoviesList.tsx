@@ -5,7 +5,7 @@ import { quickStyles } from "../../../constants";
 import { useFetchGenres } from "../../../hooks/useFetchGenres/useFetchGenres";
 import { useState } from "react";
 import { getGenreNameById } from "../../../utilities/utilities";
-export default function MoviMoviesListes({ moviesData }: MoviesProps) {
+export default function MoviMoviesLists({ moviesData }: MoviesProps) {
   const [genres, setGenres] = useState<GenreType[]>([]);
 
   useFetchGenres({
