@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import MoreIcon from "@mui/icons-material/MoreVert";
-import { SearchBar } from "../../molecules/index ";
+import { SearchInput } from "../../molecules/index ";
 import { TvOutlined } from "@mui/icons-material";
 import { Stack } from "@mui/material";
 import DragHandleRoundedIcon from "@mui/icons-material/DragHandleRounded";
@@ -93,7 +93,7 @@ export default function NavBar({ setSearchTerm }: NavBarProps) {
             </Box>
           </Stack>
 
-          <SearchBar
+          <SearchInput
             title="What do you want to watch?"
             setSearchTerm={setSearchTerm}
           />
