@@ -14,7 +14,7 @@ export const useStyles = makeStyles()((theme) => {
       // padding: "10px 20px",
       // borderRadius: 5,
       cursor: "pointer",
-      backgroundColor: theme.palette.primary.logo,
+      backgroundColor: theme.palette.secondary.dark,
     },
     showButton: {
       opacity: 1,

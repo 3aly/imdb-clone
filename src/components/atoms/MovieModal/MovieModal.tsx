@@ -33,7 +33,7 @@ export const MovieModal = ({
               </Typography>
 
               <Typography
-                color={"primary.text"}
+                color={"secondary.light"}
                 variant="subtitle1"
                 className={classes.subTitle}
               >
@@ -47,7 +47,7 @@ export const MovieModal = ({
                 {genres?.join(", ")}
               </Typography>
               <Typography
-                color={"primary.grey"}
+                color={"secondary.main"}
                 variant="subtitle1"
                 className={classes.description}
               >

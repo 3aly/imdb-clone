@@ -5,7 +5,7 @@ export const useStyles = makeStyles()((theme) => {
     loader: {
       borderRadius: "50%",
       transition: "opacity 0.5s ease-in-out",
-      color: theme.palette.primary.logo,
+      color: theme.palette.secondary.dark,
     },
   };
 });

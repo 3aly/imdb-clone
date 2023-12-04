@@ -16,7 +16,7 @@ export const RottenRating = ({ rating = 0 }: RottenRatingProps) => {
         <image href={IMAGES.rotten} width="24" height="24" />
       </SvgIcon>
 
-      <Typography variant="subtitle1" color="primary.grey">
+      <Typography variant="subtitle1" color="secondary.main">
         {((rating - 2) * 10).toFixed(1)}%
       </Typography>
     </Box>

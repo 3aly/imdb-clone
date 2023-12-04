@@ -13,7 +13,7 @@ export const ImdbRating = ({ rating }: ImdbRatingProps) => {
         <image href={IMAGES.imdb} width="24" height="24" />
       </SvgIcon>
 
-      <Typography variant="subtitle1" color="primary.grey">
+      <Typography variant="subtitle1" color="secondary.main">
         {rating.toFixed(1)}/10.0
       </Typography>
     </Box>

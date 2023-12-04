@@ -8,7 +8,7 @@ export const useStyles = makeStyles()((theme) => {
       transition: "background-color 0.3s ease-in-out",
     },
     appBarScrolled: {
-      backgroundColor: theme.palette.primary.logo,
+      backgroundColor: theme.palette.secondary.dark,
     },
     toolbarContainer: {
       marginLeft: theme.spacing(10),
@@ -30,17 +30,17 @@ export const useStyles = makeStyles()((theme) => {
         marginRight: theme.spacing(2),
       },
       color: theme.palette.primary.main,
-      backgroundColor: theme.palette.primary.logo,
+      backgroundColor: theme.palette.secondary.dark,
     },
     iconScrolled: {
       backgroundColor: theme.palette.primary.main,
-      color: theme.palette.primary.logo,
+      color: theme.palette.secondary.dark,
     },
     menuIconContainer: {
       marginLeft: theme.spacing(4),
 
       color: theme.palette.primary.main,
-      backgroundColor: theme.palette.primary.logo,
+      backgroundColor: theme.palette.secondary.dark,
       "@media (max-width: 900px)": {
         marginLeft: theme.spacing(2),
       },
