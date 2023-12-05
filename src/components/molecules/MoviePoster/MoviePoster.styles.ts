@@ -10,6 +10,7 @@ export const useStyles = makeStyles()((theme) => {
     },
     cardContainer: {
       ...quickStyles.layouts.xCentered,
+      backgroundColor: theme.palette.primary.main,
 
       height: "auto",
       boxShadow: "none",

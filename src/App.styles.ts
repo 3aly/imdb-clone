@@ -14,6 +14,7 @@ export const useStyles = makeStyles()((theme) => {
         marginLeft: theme.spacing(2),
         marginRight: theme.spacing(2),
       },
+      backgroundColor: theme.palette.primary.light,
     },
     loader: {},
     loading: {
