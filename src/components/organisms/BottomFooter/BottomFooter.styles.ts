@@ -19,10 +19,12 @@ export const useStyles = makeStyles()((theme) => {
       ...quickStyles.layouts.row,
       ...quickStyles.layouts.justifyBetween,
       ...quickStyles.layouts.alignBetween,
-
       width: theme.spacing(30),
       "@media (max-width: 900px)": {
         width: theme.spacing(40),
+      },
+      "@media (max-width: 400px)": {
+        width: theme.spacing(30),
       },
     },
     linksContainer: {
@@ -33,6 +35,17 @@ export const useStyles = makeStyles()((theme) => {
       width: theme.spacing(55),
       "@media (max-width: 900px)": {
         width: theme.spacing(50),
+      },
+      "@media (max-width: 500px)": {
+        width: theme.spacing(38),
+      },
+    },
+    text: {
+      "@media (max-width: 900px)": {
+        fontSize: 14,
+      },
+      "@media (max-width: 500px)": {
+        fontSize: 11,
       },
     },
   };

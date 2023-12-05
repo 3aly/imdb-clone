@@ -45,24 +45,41 @@ export default function Footer() {
       </Box>
       <Box className={classes.linksContainer}>
         <Link href="#" color="secondary.light" underline="none">
-          <Typography variant="h3" color={"secondary.main"}>
+          <Typography
+            variant="h3"
+            color={"secondary.main"}
+            className={classes.text}
+          >
             Conditions of Use
           </Typography>
         </Link>
         <Link href="#" color="secondary.light" underline="none">
-          <Typography variant="h3" color={"secondary.main"}>
+          <Typography
+            variant="h3"
+            color={"secondary.main"}
+            className={classes.text}
+          >
             Privacy & Policy
           </Typography>
         </Link>
         <Link href="#" color="secondary.light" underline="none">
-          <Typography variant="h3" color={"secondary.main"}>
+          <Typography
+            variant="h3"
+            color={"secondary.main"}
+            className={classes.text}
+          >
             Press Room
           </Typography>
         </Link>
       </Box>
 
       <Box>
-        <Typography variant="h3" align="center" color={"secondary.light"}>
+        <Typography
+          className={classes.text}
+          variant="h3"
+          align="center"
+          color={"secondary.light"}
+        >
           © 2023 MovieBox by Ali Hefny
         </Typography>
       </Box>
