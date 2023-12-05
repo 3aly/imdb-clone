@@ -24,8 +24,8 @@ export const useStyles = makeStyles()((theme) => {
         marginBottom: theme.spacing(0),
       },
       "@media (max-width: 400px)": {
-        marginLeft: theme.spacing(1),
-        marginRight: theme.spacing(1),
+        marginLeft: theme.spacing(0),
+        marginRight: theme.spacing(0),
         marginTop: theme.spacing(0.5),
         marginBottom: theme.spacing(0),
       },

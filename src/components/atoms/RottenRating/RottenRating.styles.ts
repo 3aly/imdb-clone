@@ -10,7 +10,16 @@ export const useStyles = makeStyles()((theme) => {
       ...quickStyles.layouts.justifyBetween,
 
       width: theme.spacing(8),
+      "@media (max-width: 500px)": {
+        width: theme.spacing(8),
+      },
     },
-    text: {},
+    text: {
+      "@media (max-width: 500px)": {
+        width: "50%",
+
+        fontSize: 10,
+      },
+    },
   };
 });

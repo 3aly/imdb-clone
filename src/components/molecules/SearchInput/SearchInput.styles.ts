@@ -16,7 +16,7 @@ export const useStyles = makeStyles()((theme) => {
       "@media (max-width: 900px)": {
         width: "70%",
         "& .MuiFormLabel-root": {
-          fontSize: 12,
+          fontSize: 10,
         },
       },
       "@media (max-width: 600px)": {

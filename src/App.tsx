@@ -37,15 +37,13 @@ function App() {
     },
     enabled: searchTerm?.length > 0 ? true : false,
   });
-
-  const { classes } = useStyles();
-  const handleScroll = () => {
+  function handleScroll() {
     const scrollTop = window.scrollY;
     const clientHeight = window.outerHeight;
-    const documentHeight = document.body.scrollHeight;
+    const scrollHeight = document.documentElement.scrollHeight; // Use documentElement.scrollHeight
 
     if (
-      scrollTop + clientHeight >= documentHeight - 1 &&
+      scrollTop + clientHeight >= scrollHeight - 1 &&
       (hasNextPage || searchHasNextPage)
     ) {
       if (searchTerm.length > 0) {
@@ -54,22 +52,11 @@ function App() {
         fetchNextPage();
       }
     }
-  };
+  }
+  const { classes } = useStyles();
 
   window.addEventListener("scroll", handleScroll);
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
 
-    window.addEventListener("scroll", handleScroll);
-
-    return;
-  }, []);
   return (
     <Box className={classes.main}>
       <NavBar {...{ setSearchTerm, isScrolled }} />
@@ -94,7 +81,7 @@ function App() {
             />
           </>
         )}
-        <BottomFooter />
+        {/* <BottomFooter /> */}
 
         <ScrollToTopButton />
       </Box>

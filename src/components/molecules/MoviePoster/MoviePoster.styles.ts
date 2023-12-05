@@ -16,7 +16,7 @@ export const useStyles = makeStyles()((theme) => {
       borderRadius: 0,
       width: theme.spacing(27),
       "@media (max-width: 500px)": {
-        width: "auto",
+        width: "95%",
       },
     },
     cardContentContainer: {
@@ -29,8 +29,19 @@ export const useStyles = makeStyles()((theme) => {
       overflow: "hidden",
       textOverflow: "ellipsis",
       display: "-webkit-box",
-      "-webkit-line-clamp": 2,
-      "-webkit-box-orient": "vertical",
+      "@media (max-width: 500px)": {
+        width: "85%",
+        fontSize: 18,
+      },
+      genreTitle: {
+        // overflow: "hidden",
+        // textOverflow: "ellipsis",
+        // display: "-webkit-box",
+        "@media (max-width: 500px)": {
+          width: "8%",
+          fontSize: 11,
+        },
+      },
     },
     mediaContainer: {
       height: theme.spacing(40),
