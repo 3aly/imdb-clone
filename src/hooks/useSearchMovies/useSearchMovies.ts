@@ -16,7 +16,10 @@ export const useSearchMovies = (
     queryKey: ["querySearchMovies", moviename],
     queryFn: ({ pageParam = 1 }) =>
       querySearchMovies({ page: pageParam, movie: moviename }),
-    getNextPageParam: (allPages: []) => {
+    getNextPageParam: (
+      lastPage,
+      allPages: MoviesDataType[][]
+    ): number | undefined => {
       return allPages.length + 1;
     },
     refetchOnWindowFocus: false,

@@ -13,7 +13,10 @@ export const useFetchAllMovies = ({
     queryKey: ["queryAllMovies"],
     queryFn: ({ pageParam = 1 }: { pageParam?: number }) =>
       queryAllMovies({ page: pageParam }),
-    getNextPageParam: (allPages: MoviesDataType[][]): number | undefined => {
+    getNextPageParam: (
+      lastPage,
+      allPages: MoviesDataType[][]
+    ): number | undefined => {
       return allPages.length + 1;
     },
     enabled: enabled,
