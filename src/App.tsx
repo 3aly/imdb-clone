@@ -42,7 +42,7 @@ function App() {
   function handleScroll() {
     const scrollTop = window.scrollY;
     const clientHeight = window.outerHeight;
-    const scrollHeight = document.documentElement.scrollHeight; // Use documentElement.scrollHeight
+    const scrollHeight = document.documentElement.scrollHeight;
 
     if (
       scrollTop + clientHeight >= scrollHeight - 1 &&
@@ -61,7 +61,7 @@ function App() {
 
   return (
     <ThemeProvider theme={darkMode ? darkTheme : theme}>
-      <Box className={classes.main}>
+      <Box className={`${classes.main} ${darkMode && classes.darkBG}`}>
         <NavBar {...{ setSearchTerm }} />
         <Box className={classes.container}>
           <SectionTitle

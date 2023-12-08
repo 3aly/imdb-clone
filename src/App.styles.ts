@@ -1,11 +1,7 @@
-import { useSelector } from "react-redux";
 import { quickStyles } from "./constants/index";
 import { makeStyles } from "tss-react/mui";
-import { StoreType } from "./types";
 
-export const useStyles = makeStyles()((theme, darkMode) => {
-  // const { darkMode } = useSelector((state: StoreType) => state.theme);
-  // console.log("darkMode", darkMode);
+export const useStyles = makeStyles()((theme) => {
   return {
     main: {
       display: "flex",
@@ -14,7 +10,7 @@ export const useStyles = makeStyles()((theme, darkMode) => {
 
       colorScheme: "light dark",
       color: theme.palette.secondary.contrastText, // Change this to your desired color
-      backgroundColor: darkMode ? "white" : "black", // Change this to your desired background color
+      backgroundColor: "white", // Change this to your desired background color
       fontStyle: "normal",
       fontWeight: "bold",
       lineHeight: "normal",
@@ -23,6 +19,10 @@ export const useStyles = makeStyles()((theme, darkMode) => {
       "-webkit-font-smoothing": "antialiased",
       "-moz-osx-font-smoothing": "grayscale",
     },
+    darkBG: {
+      backgroundColor: "#1b1717", // Change this to your desired background color
+    },
+
     container: {
       ...quickStyles.layouts.col,
       ...quickStyles.layouts.allCentered,
@@ -33,7 +33,6 @@ export const useStyles = makeStyles()((theme, darkMode) => {
         marginLeft: theme.spacing(2),
         marginRight: theme.spacing(2),
       },
-      // backgroundColor: theme.palette.primary.light,
     },
     loader: {},
     loading: {

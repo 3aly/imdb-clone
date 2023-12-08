@@ -36,8 +36,7 @@ export const useStyles = makeStyles()((theme) => {
       },
       genreTitle: {
         overflow: "hidden",
-        // textOverflow: "ellipsis",
-        // display: "-webkit-box",
+
         "@media (max-width: 500px)": {
           width: "8%",
           fontSize: 11,
