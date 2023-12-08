@@ -12,7 +12,9 @@ export const useStyles = makeStyles()((theme) => {
       ...quickStyles.layouts.justifyEnd,
     },
     paper: {
-      backgroundColor: theme.palette.background.paper,
+      // backgroundColor: theme.palette.background.paper,
+      backgroundColor: theme.palette.primary.contrastText,
+
       boxShadow: theme.shadows[5],
       padding: theme.spacing(2, 4, 3),
     },
@@ -22,10 +24,14 @@ export const useStyles = makeStyles()((theme) => {
     },
     title: {
       marginBottom: theme.spacing(2),
+      color: theme.palette.secondary.contrastText,
     },
     subTitle: {
       marginBottom: theme.spacing(1),
+      color: theme.palette.secondary.contrastText,
     },
-    description: {},
+    description: {
+      color: theme.palette.secondary.contrastText,
+    },
   };
 });

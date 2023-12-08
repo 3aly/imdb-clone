@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import "./App.css";
 import { useFetchAllMovies, useSearchMovies } from "./hooks";
@@ -8,16 +8,18 @@ import {
   MoviesList,
   NavBar,
 } from "./components/organisms/index ";
-import { Box } from "@mui/material";
-import { MoviesDataType } from "./types";
+import { Box, ThemeProvider } from "@mui/material";
+import { MoviesDataType, StoreType } from "./types";
 import { ProvidersWrapper } from "./ProvidersWrapper";
 import { useStyles } from "./App.styles";
 import { Loader, ScrollToTopButton } from "./components/atoms/index ";
+import { useSelector } from "react-redux";
+import { darkTheme, theme } from "./constants";
 function App() {
+  const { darkMode } = useSelector((state: StoreType) => state.theme);
+  console.log("darkMode", darkMode);
   const [moviesData, setMoviesData] = useState<Array<MoviesDataType>>([]);
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const [isScrolled, setIsScrolled] = useState(false);
-
   const { hasNextPage, isFetchingNextPage, fetchNextPage, isLoading } =
     useFetchAllMovies({
       onSuccess: (data: { pages: MoviesDataType[] }) => {
@@ -58,34 +60,36 @@ function App() {
   window.addEventListener("scroll", handleScroll);
 
   return (
-    <Box className={classes.main}>
-      <NavBar {...{ setSearchTerm, isScrolled }} />
-      <Box className={classes.container}>
-        <SectionTitle
-          title={
-            searchTerm && !(isFetchingNextPage || isFetchingNextSearchPage)
-              ? "Search Results..."
-              : "Featured Movie"
-          }
-        />
-        {isSearchLoading || isLoading ? (
-          <>
-            <Loader />
-          </>
-        ) : (
-          <>
-            <MoviesList {...{ moviesData }} />
+    <ThemeProvider theme={darkMode ? darkTheme : theme}>
+      <Box className={classes.main}>
+        <NavBar {...{ setSearchTerm }} />
+        <Box className={classes.container}>
+          <SectionTitle
+            title={
+              searchTerm && !(isFetchingNextPage || isFetchingNextSearchPage)
+                ? "Search Results..."
+                : "Featured Movie"
+            }
+          />
+          {isSearchLoading || isLoading ? (
+            <>
+              <Loader />
+            </>
+          ) : (
+            <>
+              <MoviesList {...{ moviesData }} />
 
-            <Loader
-              isLoading={isFetchingNextPage || isFetchingNextSearchPage}
-            />
-          </>
-        )}
-        <BottomFooter />
+              <Loader
+                isLoading={isFetchingNextPage || isFetchingNextSearchPage}
+              />
+            </>
+          )}
+          <BottomFooter />
 
-        <ScrollToTopButton />
+          <ScrollToTopButton />
+        </Box>
       </Box>
-    </Box>
+    </ThemeProvider>
   );
 }
 

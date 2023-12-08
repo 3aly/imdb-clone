@@ -44,17 +44,13 @@ export const MoviePoster = ({
           </IconButton>
         </CardMedia>
         <CardContent className={classes.cardContentContainer}>
-          <Typography
-            className={classes.genreTitle}
-            variant="subtitle1"
-            color={"primary.light"}
-          >
+          <Typography variant="subtitle1" color={"primary.light"}>
             {lang?.toUpperCase()}, {date?.substring(0, 4)}
           </Typography>
 
           <Typography
             variant="h6"
-            component="div"
+            color={"secondary.contrastText"}
             className={classes.movieTitle}
           >
             {title}
@@ -65,7 +61,7 @@ export const MoviePoster = ({
           </Stack>
           <Typography
             color={"primary.light"}
-            className={classes.genreTitle}
+            // className={classes.genreTitle}
             variant="subtitle1"
           >
             {genres?.join(", ")}

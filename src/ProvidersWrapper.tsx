@@ -1,6 +1,9 @@
 import { ThemeProvider } from "@emotion/react";
-import { theme } from "./constants";
+import { RootState } from "@reduxjs/toolkit/query";
 import { QueryClient, QueryClientProvider } from "react-query";
+import { Provider, useSelector } from "react-redux";
+import { store } from "./store/store";
+import { darkTheme, theme } from "./constants";
 import { ReactElement } from "react";
 
 export function ProvidersWrapper({
@@ -12,11 +15,9 @@ export function ProvidersWrapper({
 
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <QueryClientProvider client={queryClient}>
-          {children}
-        </QueryClientProvider>
-      </ThemeProvider>
+      <QueryClientProvider client={queryClient}>
+        <Provider store={store}>{children}</Provider>
+      </QueryClientProvider>
     </>
   );
 }

@@ -12,7 +12,7 @@ export const RottenRating = ({ rating = 0 }: RottenRatingProps) => {
 
   return (
     <Box className={classes.logoContainer}>
-      <SvgIcon fontSize="inherit" className={classes.logo}>
+      <SvgIcon fontSize="inherit">
         <image href={IMAGES.rotten} width="24" height="24" />
       </SvgIcon>
 

@@ -10,7 +10,7 @@ export const useStyles = makeStyles()((theme) => {
     },
     cardContainer: {
       ...quickStyles.layouts.xCentered,
-      backgroundColor: theme.palette.primary.main,
+      backgroundColor: theme.palette.primary.contrastText,
 
       height: "auto",
       boxShadow: "none",
@@ -35,7 +35,7 @@ export const useStyles = makeStyles()((theme) => {
         fontSize: 18,
       },
       genreTitle: {
-        // overflow: "hidden",
+        overflow: "hidden",
         // textOverflow: "ellipsis",
         // display: "-webkit-box",
         "@media (max-width: 500px)": {

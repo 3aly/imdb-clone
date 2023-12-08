@@ -11,13 +11,17 @@ import { TvOutlined } from "@mui/icons-material";
 import { Stack } from "@mui/material";
 import DragHandleRoundedIcon from "@mui/icons-material/DragHandleRounded";
 import { quickStyles } from "../../../constants";
-import { NavBarProps } from "../../../types";
+import { NavBarProps, StoreType } from "../../../types";
 import { useStyles } from "./Navbar.styles";
 import { useState, MouseEvent, useEffect, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleTheme } from "../../../store/themeReducer";
 
 export default function NavBar({ setSearchTerm }: NavBarProps) {
   const navbarRef = useRef<HTMLDivElement>(null);
-
+  const { darkMode } = useSelector((state: StoreType) => state.theme);
+  const dispatch = useDispatch();
+  console.log("darkMode", darkMode);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
     useState<null | HTMLElement>(null);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -26,35 +30,35 @@ export default function NavBar({ setSearchTerm }: NavBarProps) {
   const { classes } = useStyles();
   const mobileMenuId = "primary-search-account-menu-mobile";
 
-  const handleMobileMenuClose = () => {
-    setMobileMoreAnchorEl(null);
-  };
+  // const handleMobileMenuClose = () => {
+  //   setMobileMoreAnchorEl(null);
+  // };
 
   const handleMobileMenuOpen = (event: MouseEvent<HTMLElement>) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
-  const renderMobileMenu = (
-    <Menu
-      anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{
-        vertical: "top",
-        horizontal: "left",
-      }}
-      id={mobileMenuId}
-      keepMounted
-      transformOrigin={{
-        vertical: "top",
-        horizontal: "right",
-      }}
-      open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}
-    >
-      <MenuItem>
-        <Typography variant="h5">Sign in</Typography>
-      </MenuItem>
-    </Menu>
-  );
+  // const renderMobileMenu = (
+  //   <Menu
+  //     anchorEl={mobileMoreAnchorEl}
+  //     anchorOrigin={{
+  //       vertical: "top",
+  //       horizontal: "left",
+  //     }}
+  //     id={mobileMenuId}
+  //     keepMounted
+  //     transformOrigin={{
+  //       vertical: "top",
+  //       horizontal: "right",
+  //     }}
+  //     open={isMobileMenuOpen}
+  //     onClose={handleMobileMenuClose}
+  //   >
+  //     <MenuItem>
+  //       <Typography variant="h5">Sign in</Typography>
+  //     </MenuItem>
+  //   </Menu>
+  // );
 
   useEffect(() => {
     const handleScroll = () => {
@@ -121,7 +125,7 @@ export default function NavBar({ setSearchTerm }: NavBarProps) {
                   isScrolled && classes.iconScrolled
                 }`}
                 size="large"
-                onClick={handleMobileMenuOpen}
+                onClick={() => dispatch(toggleTheme())}
                 aria-controls={mobileMenuId}
                 color={"primary"}
               >
@@ -131,7 +135,6 @@ export default function NavBar({ setSearchTerm }: NavBarProps) {
           </Stack>
         </Toolbar>
       </AppBar>
-      {renderMobileMenu}
     </Box>
   );
 }

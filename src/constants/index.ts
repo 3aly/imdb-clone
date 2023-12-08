@@ -39,11 +39,13 @@ export const theme = responsiveFontSizes(
         main: "#FFFFFF",
         light: "#9CA3AF",
         dark: "#000",
+        contrastText: "#FFFFFF",
       },
       secondary: {
         main: "#111827",
         light: "#6B7280",
         dark: "#BE123C",
+        contrastText: "#000",
       },
     },
   })
@@ -80,11 +82,13 @@ export const darkTheme = responsiveFontSizes(
         main: "#F2F4F5 ",
         light: "#DADEDE",
         dark: "#7E8284",
+        contrastText: "#1b1717",
       },
       secondary: {
-        main: "#242B36",
+        main: "#4B535D",
         light: "#4B535D",
         dark: "#12171F",
+        contrastText: "#ffff",
       },
     },
   })
